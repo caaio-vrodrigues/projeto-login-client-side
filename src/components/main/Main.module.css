@@ -1,6 +1,17 @@
 .main{
   position: relative;
-  color: var(--fontPrimary);
+  color: var(--colorPrimary);
   margin-top: 1rem;
   padding: 0.5rem;
+}
+
+.videoBlock{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.videoBlock iframe{
+  width: 450px;
+  height: 280px;
 }

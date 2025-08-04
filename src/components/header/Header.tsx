@@ -11,7 +11,7 @@ export const Header = () => {
         <FontAwesomeIcon icon={faAppleAlt}/>
       </div>
       <div className={`${styles.centerBlock} ${styles.block}`}>
-        <h1>Dashboard</h1>
+        <h1>System</h1>
       </div>
       <div className={`${styles.rightBlock} ${styles.block}`}>
         <FontAwesomeIcon icon={faBars}/>

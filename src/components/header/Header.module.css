@@ -2,10 +2,10 @@
 .header{
   display: flex;
   justify-content: center;
-  color: var(--fontPrimary);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--fontPrimary);
+  color: var(--colorPrimary);
+  padding-top: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--colorPrimary);
 }
 
 .block{
@@ -20,6 +20,10 @@
 
 .centerBlock{
   justify-content: center;
+}
+
+.centerBlock h1{
+  font-size: 22px;
 }
 
 .rightBlock{

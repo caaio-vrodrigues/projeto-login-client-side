@@ -1,9 +1,30 @@
 .foot{
-  min-height: 120px;
+  min-height: 80px;
   margin-top: auto;
   max-width: var(--maxWidthCentralize);
-  color: var(--fontPrimary);
-  border-top: 1px solid var(--fontPrimary);
+  color: var(--colorPrimary);
+  border-top: 1px solid var(--colorPrimary);
   padding: 0.5rem;
   padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footTitle{
+  text-align: center;
+}
+
+.footTitle h2{
+  font-size: var(--fontSizePrimary);
+}
+
+.copy{
+  display: flex;
+  margin-top: 4px;
+}
+
+.copy svg{
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
 }
