@@ -3,8 +3,24 @@
   padding: 0;
 }
 
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin-inline: auto;
+  max-width: 100rem;
+}
+
+html, body, main{
+  background-color: black;
+}
+
 :root{
   /* centralizar conteúdo */
   --maxWidthCentralize: 350rem;
   --marginCentralize: auto;
+
+  /* cores */
+  --fontPrimary: white;
 }

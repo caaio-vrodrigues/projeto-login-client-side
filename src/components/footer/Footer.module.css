@@ -1,6 +1,9 @@
 .foot{
   min-height: 120px;
   margin-top: auto;
-  margin: var(--marginCentralize);
   max-width: var(--maxWidthCentralize);
+  color: var(--fontPrimary);
+  border-top: 1px solid var(--fontPrimary);
+  padding: 0.5rem;
+  padding-top: 1rem;
 }

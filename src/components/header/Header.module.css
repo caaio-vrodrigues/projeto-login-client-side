@@ -1,6 +1,39 @@
 
 .header{
   display: flex;
-  
   justify-content: center;
+  color: var(--fontPrimary);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--fontPrimary);
+}
+
+.block{
+  display: flex;
+  align-items: center;
+  width: 33.333%;
+}
+
+.leftBlock{
+  padding-left: 0.5rem;
+}
+
+.centerBlock{
+  justify-content: center;
+}
+
+.rightBlock{
+  justify-content: right;
+  cursor: pointer;
+  padding-right: 0.5rem;
+}
+
+.leftBlock svg{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.rightBlock svg{
+  width: 1.5rem;
+  height: 1.5rem;
 }
