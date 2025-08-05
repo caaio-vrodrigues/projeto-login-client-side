@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+html{
+  background-color: rgb(40, 38, 38);
+}
+
 body{
   display: flex;
   flex-direction: column;
@@ -13,18 +17,24 @@ body{
   margin-inline: auto;
   max-width: 100rem;
   font-family: 'Arimo', Arial, sans-serif;
-}
-
-html, body, main{
-  background-color: black;
+  background-color: var(--bgPrimary);
 }
 
 :root{
   /* centralizar conteúdo */
-  --maxWidthCentralize: 350rem;
-  --marginCentralize: auto;
+  --paddingMain: 0rem 4rem 0rem 4rem;
 
   /* font */
-  --fontSizePrimary: 22px;
-  --colorPrimary: rgba(255, 255, 255, 0.863);
+  --fontSizePrimary: 16px;
+  --fontSizeText: 14px;
+  --colorText: rgb(48, 50, 52);
+  --colorText2: rgb(230, 233, 236);
+  --colorPrimary: rgb(14, 91, 180);
+
+  /* cores */
+  --bgPrimary: rgb(206, 213, 220);
+  --bgSecondary: rgba(154, 184, 226, 0.603);
+
+  --boxShadow: 0px 0px 2px 0.4px rgb(85, 103, 176);
+  --sizeIcon: 22px;
 }

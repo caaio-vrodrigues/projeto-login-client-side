@@ -5,9 +5,9 @@
   color: var(--colorPrimary);
   border-top: 1px solid var(--colorPrimary);
   padding: 0.5rem;
-  padding-top: 1rem;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .footTitle{
@@ -21,10 +21,16 @@
 .copy{
   display: flex;
   margin-top: 4px;
+  align-items: center;
+}
+
+.copy p{
+  font-weight: bolder;
+  font-size: var(--fontSizePrimary);
 }
 
 .copy svg{
-  width: 18px;
-  height: 18px;
+  width: var(--sizeIcon);
+  height: var(--sizeIcon);
   margin-left: 5px;
 }

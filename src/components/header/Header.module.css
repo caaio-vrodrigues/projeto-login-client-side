@@ -15,7 +15,7 @@
 }
 
 .leftBlock{
-  padding-left: 0.5rem;
+  padding-left: 4rem;
 }
 
 .centerBlock{
@@ -23,21 +23,22 @@
 }
 
 .centerBlock h1{
-  font-size: 22px;
+  font-size: 18px;
+  font-weight: bolder;
 }
 
 .rightBlock{
   justify-content: right;
   cursor: pointer;
-  padding-right: 0.5rem;
+  padding-right: 4rem;
 }
 
 .leftBlock svg{
-  width: 1.5rem;
-  height: 1.5rem;
+  width: var(--sizeIcon);
+  height: var(--sizeIcon);
 }
 
 .rightBlock svg{
-  width: 1.5rem;
-  height: 1.5rem;
+  width: var(--sizeIcon);
+  height: var(--sizeIcon);
 }

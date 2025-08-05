@@ -2,16 +2,93 @@
   position: relative;
   color: var(--colorPrimary);
   margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: var(--paddingMain);
+}
+
+.boasVindas{
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
   padding: 0.5rem;
+  border-radius: 5px;
+  color: var(--colorText);
+  font-size: var(--fontSizeText);
+  font-weight: 600;
 }
 
 .videoBlock{
+  margin: auto;
   margin-top: 1rem;
   display: flex;
   justify-content: center;
+  max-width: 450px;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 .videoBlock iframe{
   width: 450px;
   height: 280px;
+  border-radius: 5px;
+}
+
+.descricao{
+  margin-top: 3rem;
+  padding: 0.5rem;
+  background-color: var(--bgSecondary);
+  color: var(--colorText);
+  border-radius: 5px;
+  box-shadow: var(--boxShadow);
+}
+
+.descricao h2{
+  font-size: var(--fontSizePrimary);
+  margin-bottom: 1rem;
+}
+
+.circle{
+  display: flex;
+  font-size: var(--fontSizeText);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.FontAweEl{
+  width: 10px;
+  height: 10px;
+  margin-right: .5rem;
+}
+
+.circle svg{
+  width: 6px;
+  height: 6px;
+}
+
+.link{
+  margin-left: 0.3rem;
+}
+
+.link:visited{
+  color: var(--colorPrimary);
+}
+
+.contato{
+  margin: 2rem auto ;
+  display: flex;
+  justify-content: space-between;
+  max-width: 250px;
+}
+
+.iconContato{
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconContato svg{
+  width: var(--sizeIcon);
+  height: var(--sizeIcon);
+  cursor: pointer;
 }

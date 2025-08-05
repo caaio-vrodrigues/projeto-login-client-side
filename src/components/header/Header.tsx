@@ -2,7 +2,7 @@ import styles from '@/components/header/Header.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleAlt } from '@fortawesome/free-solid-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 export const Header = () => {
   return (
@@ -14,7 +14,7 @@ export const Header = () => {
         <h1>System</h1>
       </div>
       <div className={`${styles.rightBlock} ${styles.block}`}>
-        <FontAwesomeIcon icon={faBars}/>
+        <FontAwesomeIcon icon={faClose}/>
       </div>
     </header>
   )
