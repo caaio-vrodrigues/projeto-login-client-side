@@ -1,0 +1,39 @@
+.loginTitle{
+  margin-bottom: 1rem;
+}
+
+.loginTitle h1{
+  font-size: 25px;
+  font-weight: bolder;
+  color: rgb(59, 60, 63);
+  text-shadow: 2px 1.5px 1px #646464cb;
+}
+
+.wrapInputs{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.inputBlocks{
+  width: 100%;
+}
+
+.inputBlocks input{
+  height: 2.5rem;
+  width: 100%;
+  padding: .4rem;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: 3px 2px 3px 2px rgba(72, 71, 71, 0.74);
+}
+
+.inputBlocks input::placeholder{
+  font-weight: 600;
+}
+
+.wrapPassword{
+  margin-left: 1rem;
+}

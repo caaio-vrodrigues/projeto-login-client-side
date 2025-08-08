@@ -1,0 +1,21 @@
+.buttonBlock{
+  height: 5rem;
+  margin-top: .5rem;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.button{
+  font-weight: 500;
+  text-decoration: none;
+  color: #ffffffd8;
+  transition: .2s;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.button:hover{
+  color: rgb(201, 201, 203);
+  transition: .2s;
+  cursor: pointer;
+}

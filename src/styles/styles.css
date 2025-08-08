@@ -6,7 +6,7 @@
 }
 
 html{
-  background-color: rgb(40, 38, 38);
+  background-color: var(--bgHtml);
 }
 
 body{
@@ -34,6 +34,7 @@ body{
   /* cores */
   --bgPrimary: rgb(206, 213, 220);
   --bgSecondary: rgba(154, 184, 226, 0.603);
+  --bgHtml: rgb(40, 38, 38);
 
   --boxShadow: 0px 0px 2px 0.4px rgb(85, 103, 176);
   --sizeIcon: 22px;
