@@ -1,8 +1,13 @@
 'use context';
 
-import styles from '@/components/login/button-block/ButtonBlock.module.css';
-import ContextMaster from '@/context/ContextProvider';
+// react
 import { useContext } from 'react';
+
+// styles
+import styles from '@/components/login/button-block/ButtonBlock.module.css';
+
+// context
+import ContextMaster from '@/context/ContextProvider';
 
 export const ButtonBlock = () => {
   const {showCreateAcc, setShowCreateAcc} = useContext(ContextMaster);
@@ -12,8 +17,8 @@ export const ButtonBlock = () => {
       <button 
         className={styles.button}
         onClick={()=>setShowCreateAcc(!showCreateAcc)}>
-        {showCreateAcc?"voltar":"voltar"}
-    </button>
+        {showCreateAcc ? 'login' : 'nova conta'}
+      </button>
     </div>
   </>
 }

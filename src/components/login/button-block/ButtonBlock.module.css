@@ -1,8 +1,8 @@
 .buttonBlock{
   height: 5rem;
-  margin-top: .5rem;
+  padding-top: 1rem;
+  padding-right: 2rem;
   margin-left: auto;
-  margin-right: 1rem;
 }
 
 .button{
