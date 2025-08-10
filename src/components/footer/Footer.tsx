@@ -1,5 +1,6 @@
+// styles
 import styles from '@/components/footer/Footer.module.css';
-
+// icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 

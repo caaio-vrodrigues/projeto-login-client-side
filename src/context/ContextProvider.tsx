@@ -1,6 +1,8 @@
 'use client';
 
-import { createContext, useState, ReactNode } from 'react';
+import { 
+  createContext, useState, type ReactNode, type Dispatch, type SetStateAction 
+} from 'react';
 
 type TProvider = {
   children: ReactNode;
@@ -8,7 +10,7 @@ type TProvider = {
 
 type TContextMaster = {
   showCreateAcc: boolean,
-  setShowCreateAcc: React.Dispatch<React.SetStateAction<boolean>>,
+  setShowCreateAcc: Dispatch<SetStateAction<boolean>>,
 }
 
 const ContextMaster = createContext<TContextMaster>({

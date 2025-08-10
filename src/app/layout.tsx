@@ -1,5 +1,8 @@
+// next
 import type { Metadata } from 'next';
+// styles
 import '@/styles/styles.css';
+// context
 import { ContextMasterProvider } from '@/context/ContextProvider';
 
 export const metadata: Metadata = {
@@ -7,10 +10,8 @@ export const metadata: Metadata = {
   description: 'Criação de formulário utilizando ferramentas dos ecossistemas React e Java',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+export default function RootLayout({ 
+  children }: Readonly<{children: React.ReactNode;
 }>) {
   return (
     <html lang='pt-BR'>
