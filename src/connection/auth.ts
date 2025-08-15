@@ -1,20 +1,16 @@
 // src/connection/auth.ts
 
-// [ALTERAÇÃO] Mantido: tipos básicos
 export type UserDto = Record<string, unknown>;
 
 const BASE_URL = 'http://localhost:8080';
 
-// [ALTERAÇÃO] Chave do token e fallback em memória para ambientes sem window
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
 
-// [ALTERAÇÃO] Utilitário seguro para checar ambiente
 function isBrowser(): boolean {
   return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
 }
 
-// [ALTERAÇÃO] Persistência do token
 function setToken(token: string): void {
   try {
     if (isBrowser()) {
@@ -156,6 +152,10 @@ export async function loginAcces(
     const msg = e instanceof Error ? e.message : 'Falha de rede';
     return { ok: false, status: 0, error: msg };
   }
+}
+
+export const logout = () => {
+  localStorage.removeItem("auth_token");
 }
 
 export default { createUser, login, loginAcces, getToken, clearToken };
