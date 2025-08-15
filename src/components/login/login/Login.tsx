@@ -1,15 +1,12 @@
 'use client';
-// react
-import { useContext, useState } from 'react';
-// next
 import { useRouter } from 'next/navigation';
-// components
+import { useContext, useState } from 'react';
+
 import { ButtonBlock } from '@/components/login/button-block/ButtonBlock';
-// styles
+
 import styles from '@/components/login/login/Login.module.css';
-// context
 import ContextMaster from '@/context/ContextProvider';
-// connection
+
 import { login, me } from '@/connection/auth';
 
 export const Login = () => {
@@ -67,13 +64,18 @@ export const Login = () => {
               className={styles.passwordInput}
             />
             <button type="submit" className={styles.submitBtn} disabled={loading}>
-              {loading ? 'aguarde...' : showCreateAcc ? 'enviar' : 'entrar'}
+              {showCreateAcc ? 'enviar' : 'entrar'}
             </button>
           </div>
-          {errMsg && (
-            <p style={{ color: 'crimson', marginTop: 8 }}>{errMsg}</p>
-          )}
         </form>
+        {loading && 
+          <div className={`${styles.wrapMsg}`}>
+            <p className={`${styles.loading}`}>aguarde...</p>
+          </div>}
+        {errMsg && 
+          <div className={`${styles.wrapMsg}`}>
+            <p>{errMsg}</p>
+          </div>}
       </div>
     </section>
   </>;

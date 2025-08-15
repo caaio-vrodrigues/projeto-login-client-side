@@ -1,9 +1,10 @@
+import Link from 'next/link';
+
 import styles from '@/components/main/Main.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faEnvelope  } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import Link from 'next/link';
 
 export const Main = () => {
   return (

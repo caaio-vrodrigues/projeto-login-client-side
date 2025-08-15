@@ -1,5 +1,3 @@
-// src/services/auth.ts
-
 const TOKEN_KEY = 'auth_token';
 
 export const saveToken = (token: string) => localStorage.setItem(TOKEN_KEY, token);
@@ -8,7 +6,7 @@ export const clearToken = () => localStorage.removeItem(TOKEN_KEY);
 
 export const login = async (email: string, password: string) => {
   try {
-    const res = await fetch('http://localhost:8080/user', {
+    const res = await fetch('http://localhost:8080/auth/create', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -23,15 +21,16 @@ export const login = async (email: string, password: string) => {
 };
 
 export const me = async (token?: string) => {
-  try {
+  try{
     const t = token ?? getToken();
-    if (!t) throw new Error('me: token ausente');
-    const res = await fetch('http://localhost:8080/auth/me', {
+    if(!t) throw new Error('me: token ausente');
+    const res = await fetch('http://localhost:8080/auth/login', {
       headers: { Authorization: `Bearer ${t}` }
     });
-    if (!res.ok) throw new Error(`me: HTTP ${res.status}`);
+    if(!res.ok) throw new Error(`me: HTTP ${res.status}`);
     return await res.json();
-  } catch (err) {
+  } 
+  catch(err){
     throw err instanceof Error ? err : new Error('me: erro na requisição');
   }
 };

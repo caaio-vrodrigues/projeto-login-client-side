@@ -1,9 +1,7 @@
 'use client';
-// react
 import { useContext } from 'react';
-// styles
+
 import styles from '@/components/login/button-block/ButtonBlock.module.css';
-// context
 import ContextMaster from '@/context/ContextProvider';
 
 export const ButtonBlock = () => {

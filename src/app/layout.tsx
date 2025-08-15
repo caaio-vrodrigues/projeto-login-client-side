@@ -1,8 +1,6 @@
-// next
 import type { Metadata } from 'next';
-// styles
+
 import '@/styles/styles.css';
-// context
 import { ContextMasterProvider } from '@/context/ContextProvider';
 
 export const metadata: Metadata = {

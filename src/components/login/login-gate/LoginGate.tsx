@@ -1,9 +1,7 @@
 'use client';
-// react
 import { useEffect, useState } from 'react';
-// next
 import { useRouter } from 'next/navigation';
-// connection
+
 import { getToken } from '@/connection/auth';
 
 type Props = { children: React.ReactNode };

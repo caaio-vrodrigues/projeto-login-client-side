@@ -1,13 +1,12 @@
 'use client';
-//styles
+import { useRouter } from 'next/navigation';
+
 import styles from '@/components/header/Header.module.css';
-//icons
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleAlt } from '@fortawesome/free-solid-svg-icons';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
-//next
-import { useRouter } from 'next/navigation';
-// connection
+
 import { logout } from '@/connection/auth';
 
 export const Header = () => {
