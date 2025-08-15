@@ -2,7 +2,8 @@
 
 export type UserDto = Record<string, unknown>;
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = process.env.BASE_URL;
+console.log(BASE_URL)
 
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
@@ -154,8 +155,10 @@ export async function loginAcces(
   }
 }
 
-export const logout = () => {
-  localStorage.removeItem("auth_token");
-}
+// [ALTERAÇÃO] Tornando o logout SSR-safe e unificando com clearToken()
+export const logout = (): void => {
+  clearToken();
+};
 
-export default { createUser, login, loginAcces, getToken, clearToken };
+// [ALTERAÇÃO] Incluído logout no export default para padronizar consumo
+export default { createUser, login, loginAcces, getToken, clearToken, logout };

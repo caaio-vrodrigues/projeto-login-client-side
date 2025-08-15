@@ -24,17 +24,47 @@ export const Login = () => {
     setErrMsg(null);
     setLoading(true);
     try {
-      if(showCreateAcc){
-        await createUser({ email, password: passWord });
+      if (showCreateAcc) {
+        const res: unknown = await createUser({ email, password: passWord });
+        if (res instanceof Response) {
+          if (!res.ok) {
+            let bodyText = '';
+            try {
+              bodyText = await res.clone().text();
+            } catch (_) {}
+            throw new Error(`${res.status} ${res.statusText}${bodyText ? ' - ' + bodyText : ''}`);
+          }
+        } else if (res && typeof res === 'object' && 'ok' in (res as any) && (res as any).ok === false) {
+          const r: any = res;
+          const status = r.status ? ` ${r.status}` : '';
+          const msg = r.error || `Falha de requisição${status}`;
+          throw new Error(msg);
+        }
         setShowCreateAcc(false);
         return;
       }
-      await loginAcces({ email, password: passWord });
-        router.replace('/');
-        return;
+      const res: unknown = await loginAcces({ email, password: passWord });
+      if (res instanceof Response) {
+        if (!res.ok) {
+          let bodyText = '';
+          try {
+            bodyText = await res.clone().text();
+          } catch (_) {}
+          throw new Error(`${res.status} ${res.statusText}${bodyText ? ' - ' + bodyText : ''}`);
+        }
+      } else if (res && typeof res === 'object' && 'ok' in (res as any) && (res as any).ok === false) {
+        const r: any = res;
+        const status = r.status ? ` ${r.status}` : '';
+        const msg = r.error || `Falha de requisição${status}`;
+        throw new Error(msg);
+      }
+      router.replace('/');
+      return;
     } catch (err: unknown) {
       const msg =
-        err instanceof Error ? err.message : 'Falha no login. Tente novamente.';
+        err instanceof Error && err.message
+          ? err.message
+          : 'Falha no login. Tente novamente.';
       setErrMsg(msg);
     } finally {
       setLoading(false);
@@ -86,7 +116,7 @@ export const Login = () => {
         )}
         {errMsg && (
           <div className={`${styles.wrapMsg}`}>
-            <p>{errMsg}</p>
+            <p className={styles.errorMsg}>{errMsg}</p>
           </div>
         )}
       </div>
