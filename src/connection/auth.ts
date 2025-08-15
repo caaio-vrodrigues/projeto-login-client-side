@@ -1,3 +1,5 @@
+// src/connection/auth.ts
+
 // [ALTERAÇÃO] Mantido: tipos básicos
 export type UserDto = Record<string, unknown>;
 
@@ -14,26 +16,37 @@ function isBrowser(): boolean {
 
 // [ALTERAÇÃO] Persistência do token
 function setToken(token: string): void {
-  if (isBrowser()) {
-    localStorage.setItem(TOKEN_KEY, token);
-  } else {
+  try {
+    if (isBrowser()) {
+      localStorage.setItem(TOKEN_KEY, token);
+    } else {
+      memoryToken = token;
+    }
+  } catch {
     memoryToken = token;
   }
 }
 
 // [ALTERAÇÃO] Leitura do token (usado por LoginGate)
 export function getToken(): string | null {
-  if (isBrowser()) {
-    return localStorage.getItem(TOKEN_KEY);
+  try {
+    if (isBrowser()) {
+      return localStorage.getItem(TOKEN_KEY);
+    }
+    return memoryToken;
+  } catch {
+    return memoryToken;
   }
-  return memoryToken;
 }
 
 // [ALTERAÇÃO] Remoção do token
 export function clearToken(): void {
-  if (isBrowser()) {
-    localStorage.removeItem(TOKEN_KEY);
-  } else {
+  try {
+    if (isBrowser()) {
+      localStorage.removeItem(TOKEN_KEY);
+    }
+    memoryToken = null;
+  } catch {
     memoryToken = null;
   }
 }
@@ -59,7 +72,7 @@ export async function createUser(body: UserDto): Promise<void> {
   }
 }
 
-// [ALTERAÇÃO] Novo: login para gerar e salvar o token via POST /auth/login
+// [ALTERAÇÃO] Mantido: login para gerar e salvar o token via POST /auth/login
 export interface LoginRequest {
   email: string;
   password: string;
@@ -96,4 +109,53 @@ export async function login(credentials: LoginRequest): Promise<string> {
   return data.token;
 }
 
-export default { createUser, login, getToken, clearToken };
+// [ALTERAÇÃO] Novo: loginAcces com persistência opcional (padrão: persistir)
+export interface LoginAccesResult {
+  ok: boolean;
+  status: number;
+  token?: string;
+  error?: string;
+}
+
+export async function loginAcces(
+  credentials: LoginRequest,
+  options?: { persist?: boolean }
+): Promise<LoginAccesResult> {
+  try {
+    const res = await fetch(`${BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    });
+
+    if (!res.ok) {
+      let message = res.statusText || 'Erro ao autenticar';
+      try {
+        const err = await res.json() as { code?: number; message?: string; path?: string };
+        if (err?.message) message = err.message;
+      } catch {}
+      return { ok: false, status: res.status, error: message };
+    }
+
+    const data = await res.json() as TokenResponse;
+    if (!data?.token) {
+      return { ok: false, status: 200, error: 'Resposta de login sem token.' };
+    }
+
+    const shouldPersist = options?.persist !== false;
+    if (shouldPersist) {
+      // [ALTERAÇÃO] Persistindo o token para que getToken() funcione no LoginGate
+      setToken(data.token);
+    }
+
+    return { ok: true, status: 200, token: data.token };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : 'Falha de rede';
+    return { ok: false, status: 0, error: msg };
+  }
+}
+
+export default { createUser, login, loginAcces, getToken, clearToken };

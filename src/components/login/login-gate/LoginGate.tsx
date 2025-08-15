@@ -11,6 +11,7 @@ export function LoginGate({ children }: Props) {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     const t = getToken();
+    console.log(t)
     if (t) {
       router.replace('/');
       return;
