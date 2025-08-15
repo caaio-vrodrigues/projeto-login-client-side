@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleAlt } from '@fortawesome/free-solid-svg-icons';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 
-import { logout } from '@/connection/auth';
+//import { logout } from '@/connection/auth';
 
 export const Header = () => {
   const router = useRouter();
   const handleLogout = () => {
-    logout();
+  //  logout();
     router.replace('/login');
   };
   return (
