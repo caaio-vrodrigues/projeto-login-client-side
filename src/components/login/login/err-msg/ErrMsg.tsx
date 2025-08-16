@@ -4,6 +4,7 @@ type Props = {
   loading: boolean;
   errMsg: string | null;
 }
+
 export const ErrMsg = ({ loading, errMsg }: Props) => {
   return <>
     {loading && (

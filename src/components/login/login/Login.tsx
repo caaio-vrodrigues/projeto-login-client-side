@@ -7,7 +7,8 @@ import { ErrMsg } from './err-msg/ErrMsg';
 
 import styles from '@/components/login/login/Login.module.css';
 import ContextMaster from '@/context/ContextProvider';
-import { validateCreate, validateLogin } from './util/validateCredentials';
+
+import { createUser, loginAcces } from '@/connection/auth';
 
 export const Login = () => {
   const { showCreateAcc, setShowCreateAcc } = useContext(ContextMaster);
@@ -25,11 +26,11 @@ export const Login = () => {
     setLoading(true);
     try{
       if(showCreateAcc){
-        await validateCreate({email, password});
+        await createUser({email, password});
         setShowCreateAcc(false);
         return;
       }
-      await validateLogin({email, password});
+      await loginAcces({email, password});
       router.replace('/');
       return;
     } 
@@ -38,9 +39,7 @@ export const Login = () => {
                                           : 'Falha no login. Tente novamente.';
       setErrMsg(msg);
     } 
-    finally{
-      setLoading(false);
-    }
+    finally{ setLoading(false); }
   };
 
   return <>
