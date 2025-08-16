@@ -2,8 +2,7 @@
 
 export type UserDto = Record<string, unknown>;
 
-const BASE_URL = process.env.BASE_URL;
-console.log(BASE_URL)
+const BASE_URL = "http://localhost:8080";
 
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
