@@ -9,6 +9,11 @@ import styles from '@/components/login/login/Login.module.css';
 import ContextMaster from '@/context/ContextProvider';
 
 import { createUser, loginAcces } from '@/connection/auth';
+import { FormLogin } from './form-login/FormLogin';
+
+type Props = {
+  e: React.FormEvent<HTMLFormElement>,
+}
 
 export const Login = () => {
   const { showCreateAcc, setShowCreateAcc } = useContext(ContextMaster);
@@ -18,9 +23,7 @@ export const Login = () => {
   const [errMsg, setErrMsg] = useState<string | null>(null);
   const router = useRouter();
 
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>): Promise<void> => 
-  {
+  const handleSubmit = async ({ e }: Props): Promise<void> => {
     e.preventDefault();
     setErrMsg(null);
     setLoading(true);
@@ -49,38 +52,15 @@ export const Login = () => {
         <div className={styles.loginTitle}>
           <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
         </div>
-        <form className={styles.formLogin} onSubmit={handleSubmit}>
-          <div className={`${styles.wrapInput} ${styles.wrapInputEmail}`}>
-            <input
-              type="email"
-              placeholder="E-mail"
-              name="email"
-              autoComplete="username"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className={`${styles.wrapInput} ${styles.wrapInputPassword}`}>
-            <input
-              type="password"
-              placeholder="Senha"
-              name="password"
-              autoComplete="current-password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={styles.passwordInput}
-            />
-            <button 
-              type="submit" 
-              className={styles.submitBtn} 
-              disabled={loading}
-            >
-              {showCreateAcc ? 'enviar' : 'entrar'}
-            </button>
-          </div>
-        </form>
+        <FormLogin 
+          email={email} 
+          setEmail={setEmail} 
+          password={password} 
+          setPassword={setPassword} 
+          loading={loading}
+          handleSubmit={(e) => handleSubmit({ e })}
+          showCreateAcc={showCreateAcc}
+        />
         <ErrMsg errMsg={errMsg} loading={loading}/>
       </div>
     </section>
