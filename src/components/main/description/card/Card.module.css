@@ -1,6 +1,5 @@
 .card{
-  width: 30%;
-  min-width: 13rem;
+  width: 100%;
   min-height: 5rem;
   margin-bottom: 1rem;
   color: rgb(37, 37, 135);
@@ -11,10 +10,28 @@
   border-radius: 5px;
 }
 
-.link{
-  color:rgb(8, 76, 171);
+.card p{
+  line-height: var(--lineHeight);
+}
+
+.card a{
+  color: var(--fontSizeText);
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 0.3rem;
+  width: 6.6rem;
+}
+
+.card a:hover{
+  color: rgba(48, 89, 224, 0.81);
 }
 
 .link:visited{
-  color: rgb(8, 76, 171);
+  color: var(--fontSizeTex);
+}
+
+@media screen and (max-width: 170px){
+  .card a{
+    font-size: 12px;
+  }
 }

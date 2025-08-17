@@ -26,14 +26,31 @@
   flex-wrap: wrap;
   justify-content: space-between;
   text-align: left;
-  padding-right: .5rem;
+  padding-right: 1rem;
 }
 
 .rightWrapCard{
   border-left: 1px solid rgb(14, 91, 180);
-  padding-left: .5rem;
+  padding-left: 1rem;
 }
 
 .rightWrapCard p{
   text-align: justify;
+  line-height: var(--lineHeight);
+}
+
+@media screen and (max-width: 430px){
+  .cardsContainer{
+    display: block;
+  }
+
+  .leftWrapCards{
+    width: 100%;
+  }
+
+  .rightWrapCard{
+    border: none;
+    padding: 0;
+    width: 100%;
+  }
 }

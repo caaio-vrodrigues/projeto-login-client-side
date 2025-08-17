@@ -14,7 +14,6 @@ export const Card = ({ text, link, linkTxt }: Props) => {
       {link && 
         <Link 
           href={link}
-          className={styles.link}
           target='blank'
         >
           {linkTxt}

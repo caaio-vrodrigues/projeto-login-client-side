@@ -1,9 +1,6 @@
 import { Card } from './card/Card';
 import styles from './Description.module.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle  } from '@fortawesome/free-solid-svg-icons';
-
 export const Description = () => {
   const cardInfos = [
     {
@@ -14,7 +11,7 @@ export const Description = () => {
     },
     {
       id: 1,
-      text: 'As principais tecnologias utilizadas para desenvolver essa aplicação foram: Java + Springboot e React + Next-Js.',
+      text: "As principais tecnologias utilizadas para desenvolver essa aplicação foram 'Java + Springboot' e 'React + Next-Js'. Além disso, a aplicação está disponível rodando em tempo real pelas plataformas Vercel para o frontend e Render para o backend.",
       link: null,
       linkTxt: null,
     },

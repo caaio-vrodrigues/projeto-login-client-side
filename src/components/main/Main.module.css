@@ -6,7 +6,7 @@
   padding: var(--paddingMain);
 }
 
-.boasVindas{
+.welcome{
   display: flex;
   flex-direction: column;
   max-width: fit-content;
@@ -36,7 +36,7 @@
   margin-top: 2rem;
   padding: 1rem;
   color: var(--colorText);
-  border-top: 1px solid rgb(14, 91, 180);
+  border-top: 1px solid var(--colorPrimary);
 }
 
 .wrapSpecialties h2{
@@ -94,33 +94,43 @@
   color: var(--colorPrimary);
 }
 
-.contato{
-  margin: 2rem auto ;
-  display: flex;
-  justify-content: space-between;
-  max-width: 250px;
-}
-
-.iconContato{
-  width: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.iconContato svg{
-  width: var(--sizeIcon);
-  height: var(--sizeIcon);
-  cursor: pointer;
-}
-
-.iconContato svg:hover{
-  color: var(--colorPrimaryHover);
-}
-
 @media screen and (max-width: 600px){
   .main{
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .blockSpecialt svg{
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .blockSpecialtTool svg{
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@media screen and (max-width: 330px){
+  .blockSpecialt svg{
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .blockSpecialtTool svg{
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 240px){
+  .blockSpecialt svg{
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+
+  .blockSpecialtTool svg{
+    width: 1.8rem;
+    height: 1.8rem;
   }
 }
