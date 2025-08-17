@@ -34,3 +34,13 @@
   height: var(--sizeIcon);
   margin-left: 5px;
 }
+
+@media screen and (max-width: 270px){
+  .copy{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .copy svg{
+    margin-top: 0.2rem;
+  }
+}

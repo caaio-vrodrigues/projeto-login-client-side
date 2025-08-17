@@ -30,6 +30,7 @@ body{
   --colorText: rgb(48, 50, 52);
   --colorText2: rgb(230, 233, 236);
   --colorPrimary: rgb(14, 91, 180);
+  --colorPrimaryHover: rgb(102, 168, 225);
 
   /* cores */
   --bgPrimary: rgb(206, 213, 220);

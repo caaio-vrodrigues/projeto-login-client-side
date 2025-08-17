@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   max-width: fit-content;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
   border-radius: 5px;
   color: var(--colorText);
   font-size: var(--fontSizeText);
@@ -19,22 +19,20 @@
 
 .videoBlock{
   margin: auto;
-  margin-top: 1rem;
   display: flex;
   justify-content: center;
-  max-width: 450px;
-  padding: 1rem;
   border-radius: 5px;
+  margin: 2rem 0;
 }
 
 .videoBlock iframe{
   width: 450px;
+  min-width: 7rem;
   height: 280px;
   border-radius: 5px;
 }
 
 .descricao{
-  margin-top: 3rem;
   padding: 0.5rem;
   background-color: var(--bgSecondary);
   color: var(--colorText);
@@ -91,4 +89,15 @@
   width: var(--sizeIcon);
   height: var(--sizeIcon);
   cursor: pointer;
+}
+
+.iconContato svg:hover{
+  color: var(--colorPrimaryHover);
+}
+
+@media screen and (max-width: 600px){
+  .main{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

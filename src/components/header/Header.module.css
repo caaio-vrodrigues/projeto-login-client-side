@@ -35,6 +35,10 @@
   cursor: pointer;
 }
 
+.closeIcon:hover{
+  color: var(--colorPrimaryHover);
+}
+
 .leftBlock svg{
   width: var(--sizeIcon);
   height: var(--sizeIcon);
@@ -43,4 +47,19 @@
 .rightBlock svg{
   width: var(--sizeIcon);
   height: var(--sizeIcon);
+}
+
+@media screen and (max-width: 600px){
+  .leftBlock{
+    padding-left: 1rem;
+  }
+  .rightBlock{
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 250px){
+  .centerBlock{
+    display: none;
+  }
 }

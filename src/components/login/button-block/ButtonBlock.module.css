@@ -19,3 +19,15 @@
   transition: .2s;
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px){
+  .buttonBlock{
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 250px){
+  .button{
+    color: white;
+  }
+}

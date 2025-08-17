@@ -13,7 +13,7 @@ export const Main = () => {
         <p>Olá.</p>
         <p>Seja muito bem vindo!</p>
       </div>
-       <div className={styles.videoBlock}>
+      <div className={styles.videoBlock}>
         <iframe
           src="https://www.youtube.com/embed/k41rkkPLasY"
           title="YouTube video player"
