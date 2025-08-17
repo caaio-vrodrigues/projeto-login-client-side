@@ -1,0 +1,39 @@
+.secDescription{
+  border-top: 1px solid rgb(14, 91, 180);
+  padding-top: 1rem;
+}
+
+.secDescription h1{
+  font-size: var(--fontSizePrimary);
+  margin-bottom: 1rem;
+}
+
+.secDescription h2{
+  font-size: var(--fontSizePrimary);
+  margin-bottom: 1rem;
+}
+
+.cardsContainer{
+  display: flex;
+}
+
+.wrapCards{
+  width: 50%;
+}
+
+.leftWrapCards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  padding-right: .5rem;
+}
+
+.rightWrapCard{
+  border-left: 1px solid rgb(14, 91, 180);
+  padding-left: .5rem;
+}
+
+.rightWrapCard p{
+  text-align: justify;
+}
