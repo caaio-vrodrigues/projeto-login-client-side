@@ -1,38 +1,33 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, faWhatsapp, faJava } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope  } from '@fortawesome/free-solid-svg-icons';
+import { contacts, iconJava, oracle } from './data/contactsData';
 
 import styles from './Contact.module.css';
 import Link from 'next/link';
 
-export const Contacts = () => {
-  return <>
-    <div className={`${styles.contactContainer}`}>
-      <div className={`${styles.contact}`}>
-        <div className={`${styles.iconContact}`}>
-          <FontAwesomeIcon icon={faGithub}/>
-        </div>
-        <div className={`${styles.iconContact}`}>
-          <FontAwesomeIcon icon={faLinkedin}/>
-        </div>
-        <div className={`${styles.iconContact}`}>
-          <FontAwesomeIcon icon={faWhatsapp}/>
-        </div>
-        <div className={`${styles.iconContact}`}>
-          <FontAwesomeIcon icon={faEnvelope}/>
-        </div>
-      </div>
-      <div className={`${styles.certificateContainer}`}>
-        <div className={`${styles.wrapCertificate}`}>
-          <Link 
-            href={'https://drive.google.com/file/d/16Kx3MT5M3oLrqf3Q51Y9d50Ph2JnUABr/view?usp=sharing'}
-            target='blank'
-          >
-            <FontAwesomeIcon icon={faJava}/>
-            <h2>Certified by Oracle</h2>
-          </Link>
-        </div>
+export const Contacts = () => 
+  <div className={`${styles.contactContainer}`}>
+    <div className={`${styles.contact}`}>
+      {contacts.map(link => 
+        <Link 
+          key={link.id}
+          href={link.link} 
+          target='blank'
+          className={`${styles.iconContact}`}
+        >
+          <FontAwesomeIcon icon={link.icon}/>
+        </Link>
+      )}
+    </div>
+    <div className={`${styles.certificateContainer}`}>
+      <div className={`${styles.wrapCertificate}`}>
+        <Link 
+          href={oracle}
+          target='blank'
+        >
+          <FontAwesomeIcon icon={iconJava}/>
+          <h2>Certified by Oracle</h2>
+        </Link>
       </div>
     </div>
-  </>
-}
+  </div>
+

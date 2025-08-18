@@ -19,6 +19,7 @@
 .iconContact svg{
   width: var(--sizeIcon);
   height: var(--sizeIcon);
+  color: var(--colorPrimary);
   cursor: pointer;
 }
 
