@@ -5,7 +5,7 @@ import styles from './Contact.module.css';
 import Link from 'next/link';
 
 export const Contacts = () => 
-  <div className={`${styles.contactContainer}`}>
+  <section className={`${styles.contactContainer}`}>
     <div className={`${styles.contact}`}>
       {contacts.map(link => 
         <Link 
@@ -29,5 +29,5 @@ export const Contacts = () =>
         </Link>
       </div>
     </div>
-  </div>
+  </section>
 

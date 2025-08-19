@@ -1,6 +1,6 @@
 import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
 
@@ -44,7 +44,18 @@ const dealingErrorRequest = async (msgErr: string, res: Response) => {
       message?: string; 
       path?: string 
     }; 
+
+    if(res.status == 400)
+      throw new Error(`Sua senha deve conter no mínimo 8 dígitos`);
+
+    if(res.status == 500)
+      throw new Error(`E-mail já cadastrado, tente um e-mail diferente`);
+
     const details = err && err.message ? ` - ${err.message}` : '';
+
+    if(res.status == 401)
+      throw new Error(`Falha no login${details}`);
+    
     throw new Error(`${msgErr} (status ${res.status})${details}`);
   }
 }

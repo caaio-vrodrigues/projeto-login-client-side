@@ -1,0 +1,35 @@
+.wrapSpecialties{
+  display: flex;
+  margin-top: 2rem;
+  padding: 1rem;
+  color: var(--colorText);
+  border-top: 1px solid var(--colorPrimary);
+}
+
+.wrapSpecialties h2{
+  font-size: var(--fontSizePrimary);
+  margin-bottom: 1rem;
+}
+
+.wrapSpecialties svg{
+  color: var(--colorPrimary);
+  height: 8rem;
+  width: 8rem;
+}
+
+.blockSpecialt{
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+}
+
+.blockSpecialtCenter{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blockSpecialtCenter svg{
+  height: 1.5rem;
+}
