@@ -8,7 +8,7 @@ export const Welcome = () =>
     </div>
     <div className={styles.videoBlock}>
       <iframe
-        src='https://www.youtube.com/embed/icrTbtYLqUw&list=RDicrTbtYLqUw&start_radio=1'
+        src='https://www.youtube.com/embed/weA80EhtCHs'
         title='YouTube video player'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         frameBorder='0'
