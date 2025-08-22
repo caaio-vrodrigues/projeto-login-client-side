@@ -1,7 +1,7 @@
 'use client';
 
 import { 
-  createContext, useState, type ReactNode, type Dispatch, type SetStateAction 
+  createContext, useState, type ReactNode, type Dispatch, type SetStateAction
 } from 'react';
 
 type TProvider = {
@@ -11,31 +11,49 @@ type TProvider = {
 type TContextMaster = {
   showCreateAcc: boolean,
   initServer: boolean,
-  initDb: boolean,
+  finalizedInteraction: boolean,
+  loading: boolean,
+  waitingServer: boolean,
+  page: number,
   setShowCreateAcc: Dispatch<SetStateAction<boolean>>,
   setInitServer: Dispatch<SetStateAction<boolean>>,
-  setInitDb: Dispatch<SetStateAction<boolean>>,
+  setFinalizedInteraction: Dispatch<SetStateAction<boolean>>,
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  setWaitingServer: Dispatch<SetStateAction<boolean>>,
+  setPage: Dispatch<SetStateAction<number>>,
 }
 
 const ContextMaster = createContext<TContextMaster>({
   showCreateAcc: false,
   initServer: false,
-  initDb: false,
+  finalizedInteraction: false,
+  loading: false,
+  waitingServer: true,
+  page: 0,
   setShowCreateAcc: ()=>{},
   setInitServer: ()=>{},
-  setInitDb: ()=>{},
+  setFinalizedInteraction: ()=>{},
+  setLoading: ()=>{},
+  setWaitingServer: ()=>{},
+  setPage: ()=>{},
 });
 export default ContextMaster;
 
 export function ContextMasterProvider({ children }: TProvider): React.ReactNode {
   const [showCreateAcc, setShowCreateAcc] = useState<boolean>(false);
   const [initServer, setInitServer] = useState<boolean>(false);
-  const [initDb, setInitDb] = useState<boolean>(false);
+  const [finalizedInteraction, setFinalizedInteraction] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [waitingServer, setWaitingServer] = useState(true);
+  const [page, setPage] = useState<number>(0);
 
   const contextValue: TContextMaster = {
     showCreateAcc, setShowCreateAcc,
     initServer, setInitServer,
-    initDb, setInitDb,
+    finalizedInteraction, setFinalizedInteraction,
+    loading, setLoading,
+    waitingServer, setWaitingServer,
+    page, setPage,
   }
 
   return <>

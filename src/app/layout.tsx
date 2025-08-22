@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import '@/styles/styles.css';
 import { ContextMasterProvider } from '@/context/ContextProvider';
+import { ServerWarmup } from '@/components/server/ServerWarmup';
 
 export const metadata: Metadata = {
   title: 'Formulário com React e Springboot',
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang='pt-BR'>
       <body suppressHydrationWarning={true}>
         <ContextMasterProvider>
+          <ServerWarmup/>
           {children}
         </ContextMasterProvider>
       </body>

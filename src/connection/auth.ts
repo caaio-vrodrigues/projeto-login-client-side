@@ -1,13 +1,12 @@
+'use clien';
 import { Dispatch, SetStateAction } from 'react';
 
 import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
 
-type Props = {
-  setInitServer:  Dispatch<SetStateAction<boolean>>,
-  setLoading: Dispatch<SetStateAction<boolean>>,
-}
+import { useContext } from 'react';
+import ContextMaster from '@/context/ContextProvider';
 
-const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
+const BASE_URL = 'http://localhost:8080';
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
 
@@ -15,21 +14,20 @@ function isBrowser(): boolean {
   return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
 }
 
-export const startServer = async ({ setInitServer, setLoading }: Props): Promise<boolean> => {
+export const startServer = async (): Promise<boolean> => {
+  const { setLoading, setInitServer} = useContext(ContextMaster);
   try {
     const res = await fetch(`${BASE_URL}/auth/ping`, {
       method: 'POST',
       headers: { 'Accept': 'application/json' }
     });
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setInitServer(true);
-    }, 13000); 
+    setLoading(false);
+    setInitServer(true);
     return res.ok;
   } 
   catch(err) {
     setInitServer(false);
+    console.error(err);
     return false;
   }
 };

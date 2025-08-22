@@ -105,6 +105,16 @@
   max-width: 90%;
 }
 
+.wrapMsgAndSpinner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c6c7c98f;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 600px){
   .loginCentralizedBlock{
     height: 14rem;

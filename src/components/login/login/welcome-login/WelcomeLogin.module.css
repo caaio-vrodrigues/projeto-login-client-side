@@ -1,0 +1,9 @@
+.wrapParagraphs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c6c7c98f;
+  padding: 1rem;
+  border-radius: 5px;
+}
