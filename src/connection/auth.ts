@@ -1,4 +1,10 @@
+import { Dispatch, SetStateAction } from 'react';
+
 import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
+
+type Props = {
+  setInitServer:  Dispatch<SetStateAction<boolean>>,
+}
 
 const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
 const TOKEN_KEY = 'auth_token';
@@ -7,6 +13,21 @@ let memoryToken: string | null = null;
 function isBrowser(): boolean {
   return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
 }
+
+export const startServer = async ({ setInitServer }: Props): Promise<boolean> => {
+  try {
+    const res = await fetch(`${BASE_URL}/auth/ping`, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' }
+    });
+    setInitServer(true);
+    return res.ok;
+  } 
+  catch(err) {
+    setInitServer(false);
+    return false;
+  }
+};
 
 function setToken(token: string): void {
   if (isBrowser()) {
@@ -76,4 +97,4 @@ export async function loginAcces(credentials: LoginRequest): Promise<string> {
 
 export const logout = (): void => clearToken();
 
-export default { createUser, loginAcces, getToken, clearToken, logout };
+export default { startServer, createUser, loginAcces, getToken, clearToken, logout };

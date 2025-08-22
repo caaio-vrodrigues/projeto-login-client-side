@@ -8,7 +8,7 @@ import { ErrMsg } from './err-msg/ErrMsg';
 import styles from '@/components/login/login/Login.module.css';
 import ContextMaster from '@/context/ContextProvider';
 
-import { createUser, loginAcces } from '@/connection/auth';
+import { startServer, createUser, loginAcces } from '@/connection/auth';
 import { FormLogin } from './form-login/FormLogin';
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
 }
 
 export const Login = () => {
-  const { showCreateAcc, setShowCreateAcc } = useContext(ContextMaster);
+  const { showCreateAcc, setShowCreateAcc, initServer, setInitServer } = useContext(ContextMaster);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -47,22 +47,25 @@ export const Login = () => {
 
   return <>
     <section className={styles.loginSection}>
-      <div className={styles.loginCentralizedBlock}>
-        <ButtonBlock />
-        <div className={styles.loginTitle}>
-          <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
+      <button onClick={()=>startServer({setInitServer})}>Servidor</button>
+      {initServer && 
+        <div className={styles.loginCentralizedBlock}>
+          <ButtonBlock />
+          <div className={styles.loginTitle}>
+            <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
+          </div>
+          <FormLogin 
+            email={email} 
+            setEmail={setEmail} 
+            password={password} 
+            setPassword={setPassword} 
+            loading={loading}
+            handleSubmit={(e) => handleSubmit({ e })}
+            showCreateAcc={showCreateAcc}
+          />
+          <ErrMsg errMsg={errMsg} loading={loading}/>
         </div>
-        <FormLogin 
-          email={email} 
-          setEmail={setEmail} 
-          password={password} 
-          setPassword={setPassword} 
-          loading={loading}
-          handleSubmit={(e) => handleSubmit({ e })}
-          showCreateAcc={showCreateAcc}
-        />
-        <ErrMsg errMsg={errMsg} loading={loading}/>
-      </div>
+      }
     </section>
   </>
 };
