@@ -4,6 +4,7 @@ import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
 
 type Props = {
   setInitServer:  Dispatch<SetStateAction<boolean>>,
+  setLoading: Dispatch<SetStateAction<boolean>>,
 }
 
 const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
@@ -14,13 +15,17 @@ function isBrowser(): boolean {
   return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
 }
 
-export const startServer = async ({ setInitServer }: Props): Promise<boolean> => {
+export const startServer = async ({ setInitServer, setLoading }: Props): Promise<boolean> => {
   try {
     const res = await fetch(`${BASE_URL}/auth/ping`, {
       method: 'POST',
       headers: { 'Accept': 'application/json' }
     });
-    setInitServer(true);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setInitServer(true);
+    }, 13000); 
     return res.ok;
   } 
   catch(err) {

@@ -16,11 +16,15 @@ type Props = {
 }
 
 export const Login = () => {
-  const { showCreateAcc, setShowCreateAcc, initServer, setInitServer } = useContext(ContextMaster);
+  const { 
+    showCreateAcc, setShowCreateAcc, initServer, setInitServer,
+    initDb, setInitDb, 
+  } = useContext(ContextMaster);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [errMsg, setErrMsg] = useState<string | null>(null);
+  
   const router = useRouter();
 
   const handleSubmit = async ({ e }: Props): Promise<void> => {
@@ -47,25 +51,45 @@ export const Login = () => {
 
   return <>
     <section className={styles.loginSection}>
-      <button onClick={()=>startServer({setInitServer})}>Servidor</button>
-      {initServer && 
-        <div className={styles.loginCentralizedBlock}>
-          <ButtonBlock />
-          <div className={styles.loginTitle}>
-            <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
-          </div>
-          <FormLogin 
-            email={email} 
-            setEmail={setEmail} 
-            password={password} 
-            setPassword={setPassword} 
-            loading={loading}
-            handleSubmit={(e) => handleSubmit({ e })}
-            showCreateAcc={showCreateAcc}
-          />
-          <ErrMsg errMsg={errMsg} loading={loading}/>
-        </div>
-      }
+      <div className={styles.loginCentralizedBlock}>
+        {initServer ? initDb ? <> 
+            <ButtonBlock />
+            <div className={styles.loginTitle}>
+              <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
+            </div>
+            <FormLogin 
+              email={email} 
+              setEmail={setEmail} 
+              password={password} 
+              setPassword={setPassword} 
+              loading={loading}
+              handleSubmit={(e) => handleSubmit({ e })}
+              showCreateAcc={showCreateAcc}
+            />
+            
+          </> : <>
+            <div>
+              <p>Agora ative o banco de dados clicando no botão, o processo levará mais 10 segundos. Após isso você poderá criar uma nova conta com e-mail e senha para logar no sistema.</p>
+            </div>
+            <button onClick={()=>{
+              setLoading(true);
+              setTimeout(()=> { 
+                setLoading(false);
+                setInitDb(true); 
+              }, 13000)}
+            }>Servidor</button>
+          </>
+          
+          : <>
+            <div>
+              <p>Essa aplicação encontra-se em estado de hibernação.</p>
+              <p>Clique no botão abaixo para acionar o servidor, o processo levará 10 segundos.</p>
+            </div>
+            <button onClick={()=>startServer({ setInitServer, setLoading })}>Servidor</button>
+          </>
+        }
+        <ErrMsg errMsg={errMsg} loading={loading}/>
+      </div>
     </section>
   </>
 };
