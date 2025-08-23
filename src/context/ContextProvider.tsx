@@ -14,13 +14,13 @@ type TContextMaster = {
   finalizedInteraction: boolean,
   loading: boolean,
   waitingServer: boolean,
-  page: number,
+  currentPage: number,
   setShowCreateAcc: Dispatch<SetStateAction<boolean>>,
   setInitServer: Dispatch<SetStateAction<boolean>>,
   setFinalizedInteraction: Dispatch<SetStateAction<boolean>>,
   setLoading: Dispatch<SetStateAction<boolean>>,
   setWaitingServer: Dispatch<SetStateAction<boolean>>,
-  setPage: Dispatch<SetStateAction<number>>,
+  setCurrentPage: Dispatch<SetStateAction<number>>,
 }
 
 const ContextMaster = createContext<TContextMaster>({
@@ -29,13 +29,13 @@ const ContextMaster = createContext<TContextMaster>({
   finalizedInteraction: false,
   loading: false,
   waitingServer: true,
-  page: 0,
+  currentPage: 0,
   setShowCreateAcc: ()=>{},
   setInitServer: ()=>{},
   setFinalizedInteraction: ()=>{},
   setLoading: ()=>{},
   setWaitingServer: ()=>{},
-  setPage: ()=>{},
+  setCurrentPage: ()=>{},
 });
 export default ContextMaster;
 
@@ -45,7 +45,7 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
   const [finalizedInteraction, setFinalizedInteraction] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [waitingServer, setWaitingServer] = useState(true);
-  const [page, setPage] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(0);
 
   const contextValue: TContextMaster = {
     showCreateAcc, setShowCreateAcc,
@@ -53,7 +53,7 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
     finalizedInteraction, setFinalizedInteraction,
     loading, setLoading,
     waitingServer, setWaitingServer,
-    page, setPage,
+    currentPage, setCurrentPage,
   }
 
   return <>
