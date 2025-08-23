@@ -5,8 +5,8 @@ import { ContextMasterProvider } from '@/context/ContextProvider';
 import { ServerWarmup } from '@/components/server/ServerWarmup';
 
 export const metadata: Metadata = {
-  title: 'Formulário com React e Springboot',
-  description: 'Criação de formulário utilizando ferramentas dos ecossistemas React e Java',
+  title: 'Login Project',
+  description: 'Criação de um sistema de login completo.',
 };
 
 export default function RootLayout({ 

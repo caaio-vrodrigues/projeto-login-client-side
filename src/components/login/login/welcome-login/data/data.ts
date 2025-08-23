@@ -6,13 +6,13 @@ export const allPages = [
     },
     {
       id: 1, 
-      str: "Espero que você possa ter uma boa experiência ao navegar pelo App."
+      str: "Aqui o objetivo principal é demonstrar um sistema de login completo com verificação de sessão e armazenamento de dados através do backend desenvolvido com Java. Para isso utilizo recursos como CRUD, TDO, CORS, DB-H2 e outros elementos auxiliares do Springboot."
     }
   ],
   [
     {
       id: 0, 
-      str: "Antes que você crie uma nova conta de usuário para logar no App, gostaria de fazer uma breve apresentação. Será muito rápido, o objetivo é que você saiba de forma breve como fiz para criar todo o projeto."
+      str: "Antes que você crie uma nova conta de usuário para logar no App, gostaria de fazer uma rápida apresentação, o objetivo é apenas que você entenda de forma resumida como desenvolvi o projeto."
     },
   ],
   [
@@ -68,7 +68,7 @@ export const allPages = [
     },
     {
       id: 1, 
-      str: "Agradeço pela atenção, tenha um ótimo dia!"
+      str: "Agradeço pela atenção!"
     },
     {
       id: 100, 

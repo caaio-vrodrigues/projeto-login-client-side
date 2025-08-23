@@ -53,14 +53,10 @@ export const Login = () => {
   };
 
   useEffect(() => {
-    if (ranRef.current) return;
-    if(waitingServer){
-      ranRef.current = true;
-      setTimeout(() => {
-        setWaitingServer(false);
-      },20000);
-    }
-  }, [waitingServer, setWaitingServer, setErrMsg]);
+    setTimeout(() => {
+      setWaitingServer(false);
+    },12000);
+  }, []);
 
   return <>
     <section className={styles.loginSection}>
@@ -94,7 +90,7 @@ export const Login = () => {
         <>
           {waitingServer ? 
             <div className={styles.wrapMsgAndSpinner}>
-              <p>Aguarde 15 segundos para a ativação do servidor em estado de hibernação</p>
+              <p>Aguarde 10 segundos para a ativação do servidor em estado de hibernação</p>
               <Spinner/>
             </div>
             : 
