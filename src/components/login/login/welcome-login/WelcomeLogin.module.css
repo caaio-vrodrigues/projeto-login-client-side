@@ -1,0 +1,9 @@
+.wrapMsgReady{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e5e5e695;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 40rem;
+}

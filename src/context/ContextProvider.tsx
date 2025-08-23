@@ -42,6 +42,7 @@ export default ContextMaster;
 
 const CURRENT_PAGE_KEY = 'currentPage';
 const WAITING_SERVER_KEY = 'waitingServer';
+const FINALIZED_INTERACTION = 'finalizedInteraction';
 
 export function ContextMasterProvider({ children }: TProvider): React.ReactNode {
   const [showCreateAcc, setShowCreateAcc] = useState<boolean>(false);
@@ -68,6 +69,13 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
         const val = savedWaiting === 'true';
         if (val !== waitingServer) setWaitingServer(val);
       }
+
+      const savedInteraction = sessionStorage.getItem(FINALIZED_INTERACTION);
+      if (savedInteraction !== null) {
+        const val = savedInteraction === 'true';
+        if (val !== finalizedInteraction) setFinalizedInteraction(val);
+      }
+
       const savedPage = sessionStorage.getItem(CURRENT_PAGE_KEY);
       if (savedPage !== null) {
         const n = Number(savedPage);
@@ -80,6 +88,10 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
   useEffect(() => {
     sessionStorage.setItem(WAITING_SERVER_KEY, String(waitingServer));
   }, [waitingServer]);
+
+  useEffect(() => {
+    sessionStorage.setItem(FINALIZED_INTERACTION, String(finalizedInteraction));
+  }, [finalizedInteraction]);
 
   useEffect(() => {
     sessionStorage.setItem(CURRENT_PAGE_KEY, String(currentPage));

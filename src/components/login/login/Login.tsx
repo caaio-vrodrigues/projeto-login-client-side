@@ -56,9 +56,9 @@ export const Login = () => {
     if (ranRef.current) return;
     if(waitingServer){
       ranRef.current = true;
-      setTimeout(()=>{
+      setTimeout(() => {
         setWaitingServer(false);
-      },15000);
+      },20000);
     }
   }, [waitingServer, setWaitingServer, setErrMsg]);
 
@@ -84,8 +84,7 @@ export const Login = () => {
             </> 
             : 
             <div className={styles.wrapMsgAndSpinner}>
-              <p>Servidor recuperando estado de hibernação, 
-              aguarde alguns segundos.</p>
+              <p>Finalizando processo...</p>
               <Spinner/>
             </div>
           }
@@ -95,7 +94,7 @@ export const Login = () => {
         <>
           {waitingServer ? 
             <div className={styles.wrapMsgAndSpinner}>
-              <p>Ativando servidor, levará aproximadamente 10 segundos</p>
+              <p>Aguarde 15 segundos para a ativação do servidor em estado de hibernação</p>
               <Spinner/>
             </div>
             : 

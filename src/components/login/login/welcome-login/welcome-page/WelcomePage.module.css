@@ -1,18 +1,18 @@
 .wrapParagraphs{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #e5e5e695;
   padding: 1rem;
   border-radius: 5px;
-  min-width: 40rem;
+  width: 40rem;
   min-height: 15rem;
 }
 
 .paragraphBlock{
-  height: 8rem;
+  min-height: 8rem;
   line-height: var(--lineHeight);
+  text-align: justify;
 }
 
 .buttonBlock{
@@ -35,4 +35,18 @@
 .buttonNextPage:hover{
   transition: .2s;
   background-color: rgba(14, 92, 180, 0.693);
+}
+
+.wrapLink{
+  padding-top: 1rem;
+}
+
+.wrapLink a{
+  color: var(--colorPrimary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.wrapLink a:hover{
+  color: rgba(14, 92, 180, 0.693);
 }

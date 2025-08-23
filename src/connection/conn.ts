@@ -1,6 +1,6 @@
 import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
 
-const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
+const BASE_URL = 'http://localhost:8080';
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
 
@@ -13,7 +13,9 @@ type Props = {
   setInitServer: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const startServer = async ({ setLoading, setInitServer }: Props): Promise<boolean> => {
+export const startServer = async (props: Props): Promise<boolean> => {
+  const { setInitServer, setLoading } = props;
+
   try{
     const res = await fetch(`${BASE_URL}/auth/ping`, {
       method: 'POST',
@@ -98,4 +100,6 @@ export async function loginAcces(credentials: LoginRequest): Promise<string> {
 
 export const logout = (): void => clearToken();
 
-export default { startServer, createUser, loginAcces, getToken, clearToken, logout };
+export default { 
+  startServer, createUser, loginAcces, getToken, clearToken, logout 
+};
