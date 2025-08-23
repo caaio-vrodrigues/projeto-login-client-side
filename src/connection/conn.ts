@@ -1,4 +1,3 @@
-'use clien';
 import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
 
 const BASE_URL = 'http://localhost:8080';

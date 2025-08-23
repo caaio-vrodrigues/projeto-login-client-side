@@ -22,7 +22,7 @@ export function ServerWarmup() {
         setTimeout(async () => {
           if(!alreadyWarmed) await startServer({setInitServer, setLoading});
           setInitServer(true);
-        },10000);
+        },0);
       } catch (e) {
         console.error(e);
       } finally {

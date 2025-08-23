@@ -58,7 +58,7 @@ export const Login = () => {
       ranRef.current = true;
       setTimeout(()=>{
         setWaitingServer(false);
-      },3000);
+      },15000);
     }
   }, [waitingServer, setWaitingServer, setErrMsg]);
 

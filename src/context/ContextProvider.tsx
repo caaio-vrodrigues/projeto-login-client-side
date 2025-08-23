@@ -1,7 +1,8 @@
 'use client';
 
 import { 
-  createContext, useState, type ReactNode, type Dispatch, type SetStateAction
+  createContext, useState, useEffect, type ReactNode, type Dispatch, 
+  type SetStateAction
 } from 'react';
 
 type TProvider = {
@@ -39,6 +40,9 @@ const ContextMaster = createContext<TContextMaster>({
 });
 export default ContextMaster;
 
+const CURRENT_PAGE_KEY = 'currentPage';
+const WAITING_SERVER_KEY = 'waitingServer';
+
 export function ContextMasterProvider({ children }: TProvider): React.ReactNode {
   const [showCreateAcc, setShowCreateAcc] = useState<boolean>(false);
   const [initServer, setInitServer] = useState<boolean>(false);
@@ -55,6 +59,31 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
     waitingServer, setWaitingServer,
     currentPage, setCurrentPage,
   }
+
+   // Reidratar o sessionStorage após o mount (evita warning de hidratação)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+      const savedWaiting = sessionStorage.getItem(WAITING_SERVER_KEY);
+      if (savedWaiting !== null) {
+        const val = savedWaiting === 'true';
+        if (val !== waitingServer) setWaitingServer(val);
+      }
+      const savedPage = sessionStorage.getItem(CURRENT_PAGE_KEY);
+      if (savedPage !== null) {
+        const n = Number(savedPage);
+        if (Number.isFinite(n) && n !== currentPage) setCurrentPage(n);
+      }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // roda só uma vez, após o mount
+
+  // Persistir mudanças no sessionStorage
+  useEffect(() => {
+    sessionStorage.setItem(WAITING_SERVER_KEY, String(waitingServer));
+  }, [waitingServer]);
+
+  useEffect(() => {
+    sessionStorage.setItem(CURRENT_PAGE_KEY, String(currentPage));
+  }, [currentPage]);
 
   return <>
     <ContextMaster.Provider value={contextValue}>
