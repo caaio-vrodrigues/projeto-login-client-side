@@ -6,7 +6,7 @@ import { faAppleAlt, faClose, faArrowRight } from '@fortawesome/free-solid-svg-i
 
 import styles from '@/components/header/Header.module.css';
 
-import { logout } from '@/connection/auth';
+import { logout } from '@/connection/conn';
 
 export const Header = () => {
   const router = useRouter();

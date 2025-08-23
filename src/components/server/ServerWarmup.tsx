@@ -1,7 +1,7 @@
 'use client';
 import { useContext, useEffect, useRef } from 'react';
 import ContextMaster from '@/context/ContextProvider';
-import { startServer } from '@/connection/auth';
+import { startServer } from '@/connection/conn';
 
 const SESSION_KEY = 'serverWarmed';
 
@@ -20,7 +20,7 @@ export function ServerWarmup() {
       try {
         setLoading(true);
         setTimeout(async () => {
-          if(!alreadyWarmed) await startServer();
+          if(!alreadyWarmed) await startServer({setInitServer, setLoading});
           setInitServer(true);
         },10000);
       } catch (e) {

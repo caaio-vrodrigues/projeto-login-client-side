@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { getToken } from '@/connection/auth';
+import { getToken } from '@/connection/conn';
 
 type Props = { 
   children: React.ReactNode 

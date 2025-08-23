@@ -1,10 +1,5 @@
 'use clien';
-import { Dispatch, SetStateAction } from 'react';
-
 import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
-
-import { useContext } from 'react';
-import ContextMaster from '@/context/ContextProvider';
 
 const BASE_URL = 'http://localhost:8080';
 const TOKEN_KEY = 'auth_token';
@@ -14,9 +9,13 @@ function isBrowser(): boolean {
   return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
 }
 
-export const startServer = async (): Promise<boolean> => {
-  const { setLoading, setInitServer} = useContext(ContextMaster);
-  try {
+type Props = {
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setInitServer: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export const startServer = async ({ setLoading, setInitServer }: Props): Promise<boolean> => {
+  try{
     const res = await fetch(`${BASE_URL}/auth/ping`, {
       method: 'POST',
       headers: { 'Accept': 'application/json' }

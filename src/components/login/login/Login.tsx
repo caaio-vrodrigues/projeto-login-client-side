@@ -8,7 +8,7 @@ import { ErrMsg } from './err-msg/ErrMsg';
 import styles from '@/components/login/login/Login.module.css';
 import ContextMaster from '@/context/ContextProvider';
 
-import { createUser, loginAcces } from '@/connection/auth';
+import { createUser, loginAcces } from '@/connection/conn';
 import { FormLogin } from './form-login/FormLogin';
 import { WelcomeLogin } from './welcome-login/WelcomeLogin';
 import { Spinner } from '@/utils/spinner/Spinner';
