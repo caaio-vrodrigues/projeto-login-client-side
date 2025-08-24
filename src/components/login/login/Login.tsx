@@ -28,7 +28,6 @@ export const Login = () => {
   const [errMsg, setErrMsg] = useState<string | null>(null);
   
   const router = useRouter();
-  const ranRef = useRef(false);
 
   const handleSubmit = async ({ e }: Props): Promise<void> => {
     e.preventDefault();
@@ -55,7 +54,7 @@ export const Login = () => {
   useEffect(() => {
     setTimeout(() => {
       setWaitingServer(false);
-    },12000);
+    },8000);
   }, []);
 
   return <>

@@ -5,5 +5,17 @@
   background-color: #e5e5e695;
   padding: 1rem;
   border-radius: 5px;
-  width: 40rem;
+}
+
+.wrapMsgReady p{
+  text-align: justify;
+  hyphens: auto; /* quebra de palavra */
+}
+
+@media screen and (max-width: 250px){
+  .wrapMsgReady{
+    padding: .3rem;
+    font-size: 14px;
+    margin: 0 .5rem;
+  }
 }

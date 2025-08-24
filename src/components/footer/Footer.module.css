@@ -43,4 +43,12 @@
   .copy svg{
     margin-top: 0.2rem;
   }
+
+  .footTitle p{
+    font-size: 14px;
+  }
+
+  .footTitle h2{
+    font-size: 14px;
+  }
 }

@@ -5,8 +5,8 @@
   background-color: #e5e5e695;
   padding: 1rem;
   border-radius: 5px;
-  width: 40rem;
   min-height: 15rem;
+  margin: 0 1rem;
 }
 
 .paragraphBlock{
@@ -15,8 +15,9 @@
   text-align: justify;
 }
 
-.buttonBlock{
-  height: 2rem;
+.paragraphBlock p{
+  max-width: 40rem;
+  hyphens: auto; /* quebra de palavra */
 }
 
 .buttonNextPage{
@@ -49,4 +50,17 @@
 
 .wrapLink a:hover{
   color: rgba(14, 92, 180, 0.693);
+}
+
+@media screen and (max-width: 250px){
+  .wrapParagraphs{
+    padding: .3rem;
+    font-size: 14px;
+  }
+
+  .buttonNextPage{
+    min-width: 0;
+    width: 2rem;
+    height: .8rem;
+  }
 }

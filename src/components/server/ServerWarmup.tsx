@@ -19,10 +19,8 @@ export function ServerWarmup() {
     const warmup = async () => {
       try {
         setLoading(true);
-        setTimeout(async () => {
-          if(!alreadyWarmed) await startServer({setInitServer, setLoading});
-          setInitServer(true);
-        },0);
+        if(!alreadyWarmed) await startServer({setInitServer, setLoading});
+        setInitServer(true);
       } catch (e) {
         console.error(e);
       } finally {

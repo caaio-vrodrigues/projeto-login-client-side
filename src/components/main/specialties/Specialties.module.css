@@ -33,3 +33,39 @@
 .blockSpecialtCenter svg{
   height: 1.5rem;
 }
+
+@media screen and (max-width: 600px){
+  .blockSpecialt svg{
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .blockSpecialtTool svg{
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@media screen and (max-width: 330px){
+  .blockSpecialt svg{
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .blockSpecialtTool svg{
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 240px){
+  .blockSpecialt svg{
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+
+  .blockSpecialtTool svg{
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}

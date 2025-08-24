@@ -9,7 +9,7 @@ export const WelcomeLogin = () => {
   const { setFinalizedInteraction, currentPage } = useContext(ContextMaster);
 
   const endPreview = useCallback(()=> {
-    setTimeout(()=>{setFinalizedInteraction(true)}, 12000);
+    setTimeout(()=>{setFinalizedInteraction(true)}, 8000);
     return <>
       <div className={`${styles.wrapMsgReady}`}>
         <p>Tudo pronto, aguarde um momento enquanto a ativação do servidor é finalizada.</p> 
@@ -19,14 +19,13 @@ export const WelcomeLogin = () => {
   }, []);
 
   return <>
-    <div className={styles.welcomeLoginContainer}>
-      {allPages.map((page, id) => {
-          if(currentPage == id){
-            return <WelcomePage key={id} strs={page} />
-          }
-        })
-      }
-      {currentPage == allPages.length && endPreview()}
-    </div>
+    {allPages.map((page, id) => {
+        if(currentPage == id){
+          const lastPage = allPages.length - 1 == id;
+          return <WelcomePage key={id} strs={page} isLastPage={lastPage}/>
+        }
+      })
+    }
+    {currentPage == allPages.length && endPreview()}
   </>
 }

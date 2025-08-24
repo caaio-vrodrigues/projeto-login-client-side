@@ -12,12 +12,16 @@ type Props = {
     id: number,
     str: string,
   }[],
+  isLastPage: boolean,
 };
 
-export const WelcomePage = ({ strs }: Props) => {
+export const WelcomePage = ({ strs, isLastPage }: Props) => {
   const { currentPage, setCurrentPage  } = useContext(ContextMaster);
   const [showNext, setShowNext] = useState(false);
+
   let time = currentPage == 0 ? 3000 : 8000;
+  if(isLastPage) time = 1000;
+  
   const buttonNextPage = () => 
     <FontAwesomeIcon 
       icon={faArrowRight}
@@ -37,20 +41,18 @@ export const WelcomePage = ({ strs }: Props) => {
       <div className={styles.paragraphBlock}>
         {strs.map(p => {
           if(p.id == 100){
-            return <>
-              <div  key={p.id} className={`${styles.wrapLink}`}>
+            return (
+              <div key={p.id} className={`${styles.wrapLink}`}>
                 <Link href={p.str} target='_blank'>
                   {"certificado-caio-oracle-java-se8"}
                 </Link>
               </div>
-            </>
+            );
           } 
           return <p key={p.id}>{p.str}</p>;
         })}
       </div>
-      <div className={styles.buttonBlock}>
         {showNext && buttonNextPage()}
-      </div>
     </div> 
   </>
 }
