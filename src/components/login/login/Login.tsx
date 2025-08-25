@@ -23,10 +23,9 @@ export const Login = () => {
     setLoading, waitingServer, setWaitingServer,
   } = useContext(ContextMaster);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [errMsg, setErrMsg] = useState<string | null>(null);
-  
   const router = useRouter();
 
   const handleSubmit = async ({ e }: Props): Promise<void> => {
@@ -43,47 +42,35 @@ export const Login = () => {
       router.replace('/');
       return;
     } 
-    catch(err: unknown){
-      const msg = err instanceof Error && 
-        err.message ? err.message : 'Falha no login. Tente novamente.';
-      setErrMsg(msg);
-    } 
+    catch(e){ e instanceof Error && setErrMsg(e.message); } 
     finally{ setLoading(false); }
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setWaitingServer(false);
-    },8000);
+    setTimeout(() => setWaitingServer(false), 8000);
   }, []);
 
-  return <>
+  return(
     <section className={styles.loginSection}>
       {endIntercation ? 
         <div className={styles.loginCentralizedBlock}>
-          {initServer ? 
-            <> 
-              <ButtonBlock />
-              <div className={styles.loginTitle}>
-                <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
-              </div>
-              <FormLogin 
-                email={email} 
-                setEmail={setEmail} 
-                password={password} 
-                setPassword={setPassword} 
-                loading={loading}
-                handleSubmit={(e) => handleSubmit({ e })}
-                showCreateAcc={showCreateAcc} 
-              />
-            </> 
-            : 
-            <div className={styles.wrapMsgAndSpinner}>
-              <p>Finalizando processo...</p>
-              <Spinner/>
+          <> 
+            <ButtonBlock />
+            <div className={styles.loginTitle}>
+              <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
             </div>
-          }
-          {initServer && <ErrMsg errMsg={errMsg} loading={loading}/>}
+            <FormLogin 
+              email={email} 
+              setEmail={setEmail} 
+              password={password} 
+              setPassword={setPassword} 
+              loading={loading}
+              handleSubmit={(e) => handleSubmit({ e })}
+              showCreateAcc={showCreateAcc} 
+            />
+          </> 
+          {errMsg && <ErrMsg errMsg={errMsg} loading={loading}/>}
+          {loading && <Spinner/>}
         </div> 
         : 
         <>
@@ -98,5 +85,5 @@ export const Login = () => {
         </>
       }
     </section>
-  </>
+  );
 };

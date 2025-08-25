@@ -32,34 +32,34 @@ const dealingErrorRequest = async (msgErr: string, res: Response) => {
       message?: string; 
       path?: string 
     }; 
+    const details = err && err.message ? ` - ${err.message}` : '';
 
+    if(err.message?.toLowerCase() == 'failed to fetch')
+      throw new Error(`Falha na requisição`);
     if(res.status == 400)
       throw new Error(`Sua senha deve conter no mínimo 8 dígitos`);
     if(res.status == 500)
       throw new Error(`E-mail já cadastrado, tente um e-mail diferente`);
+    if(res.status == 401) throw new Error(`Falha no login ${details}`);
 
-    const details = err && err.message ? ` - ${err.message}` : '';
-    if(res.status == 401) throw new Error(`Falha no login${details}`);
     throw new Error(`${msgErr} (status ${res.status})${details}`);
   }
 }
 
 export const startServer = async (props: Props): Promise<boolean> => {
-  const { setInitServer, setLoading } = props;
+  const { setInitServer } = props;
   try{
     const res = await fetch(`${BASE_URL}/auth/ping`, {
       method: 'POST',
       headers: { 'Accept': 'application/json' }
     });
-    setLoading(false);
-    setInitServer(true);
     return res.ok;
   } 
   catch(err) {
-    setInitServer(false);
     console.error(err);
     return false;
   }
+  finally{ setInitServer(true); }
 };
 
 export const getToken = (): string | null => {
@@ -68,8 +68,11 @@ export const getToken = (): string | null => {
 }
 
 export async function createUser(body: UserDto): Promise<void> {
+  console.log('executou');
   const res = await request(body, 'create');
+  console.log('executou 2');
   await dealingErrorRequest('Falha ao criar usuário', res);
+  console.log('executou 3');
 }
 
 export async function loginAcces(credentials: LoginRequest): Promise<string> {

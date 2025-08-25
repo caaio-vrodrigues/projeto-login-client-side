@@ -18,7 +18,6 @@ type Props = {
 export const WelcomePage = ({ strs, isLastPage }: Props) => {
   const { currentPage, setCurrentPage  } = useContext(ContextMaster);
   const [showNext, setShowNext] = useState(false);
-
   let time = currentPage == 0 ? 3000 : 6000;
   if(isLastPage) time = 1000;
   
@@ -29,32 +28,25 @@ export const WelcomePage = ({ strs, isLastPage }: Props) => {
       onClick={()=>setCurrentPage(currentPage + 1)}
     />
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowNext(true);
-    }, time);
-    return () => clearTimeout(timer);
-  }, []);
+  useEffect(() => { setTimeout(() => setShowNext(true), time) }, []);
   
-  return <>
+  return(
     <div className={styles.wrapParagraphs}>
       <div className={styles.paragraphBlock}>
-        {strs.map(p => {
-          if(p.id == 100){
-            return (
-              <div key={p.id} className={`${styles.wrapLink}`}>
-                <Link href={p.str} target='_blank'>
-                  {"certificado-caio-oracle-java-se8"}
-                </Link>
-              </div>
-            );
-          } 
-          return <p key={p.id}>{p.str}</p>;
-        })}
+        {strs.map(p => 
+          p.id == 100 ? 
+            <div key={p.id} className={`${styles.wrapLink}`}>
+              <Link href={p.str} target='_blank'>
+                {"certificado-caio-oracle-java-se8"}
+              </Link>
+            </div>
+            :
+            <p key={p.id}>{p.str}</p>
+        )}
       </div>
-        {showNext && buttonNextPage()}
+      {showNext && buttonNextPage()}
     </div> 
-  </>
+  );
 }
   
 

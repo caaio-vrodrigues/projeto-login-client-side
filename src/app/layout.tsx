@@ -9,17 +9,16 @@ export const metadata: Metadata = {
   description: 'Criação de um sistema de login completo.',
 };
 
-type Props = {}
+type Props = Readonly<{children: React.ReactNode;}>
 
-export default function RootLayout({ children }: Readonly<{children: React.ReactNode;}>) {
-  return (
-    <html lang='pt-BR'>
-      <body suppressHydrationWarning={true}>
-        <ContextMasterProvider>
-          <ServerWarmup/>
-          {children}
-        </ContextMasterProvider>
-      </body>
-    </html>
-  );
-}
+const RootLayout = ({ children }: Props) => 
+  <html lang='pt-BR'>
+    <body suppressHydrationWarning={true}>
+      <ContextMasterProvider>
+        <ServerWarmup/>
+        {children}
+      </ContextMasterProvider>
+    </body>
+  </html>
+
+export default RootLayout;

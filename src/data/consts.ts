@@ -1,0 +1,1 @@
+export const endInteraction = 'Tudo pronto, aguarde um momento enquanto a ativação do servidor é finalizada.';

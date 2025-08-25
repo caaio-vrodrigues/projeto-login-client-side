@@ -5,8 +5,8 @@ import { startServer } from '@/connection/conn';
 
 const SESSION_KEY = 'serverWarmed';
 
-export function ServerWarmup() {
-  const { setInitServer, setLoading } = useContext(ContextMaster);
+export const ServerWarmup = () => {
+  const { setInitServer } = useContext(ContextMaster);
   const ranRef = useRef(false);
 
   useEffect(() => {
@@ -16,17 +16,9 @@ export function ServerWarmup() {
     const alreadyWarmed = typeof window !== 'undefined' 
       ? sessionStorage.getItem(SESSION_KEY) === '1' : false;
 
-    const warmup = async () => {
-      try {
-        setLoading(true);
-        if(!alreadyWarmed) await startServer({setInitServer, setLoading});
-        setInitServer(true);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        if(!alreadyWarmed) sessionStorage.setItem(SESSION_KEY, '1');
-        setLoading(false);
-      }
+    const warmup = () => {
+      if(!alreadyWarmed) startServer({setInitServer});
+      if(!alreadyWarmed) sessionStorage.setItem(SESSION_KEY, '1');
     };
     warmup();
   }, [setInitServer]);

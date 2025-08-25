@@ -1,31 +1,18 @@
-import ContextMaster from "@/context/ContextProvider";
-import { useCallback, useContext, useState } from "react";
-import styles from './WelcomeLogin.module.css';
+import { useContext } from "react";
 import { WelcomePage } from "./welcome-page/WelcomePage";
+import ContextMaster from "@/context/ContextProvider";
 import { allPages } from './data/data';
-import { Spinner } from "@/utils/spinner/Spinner";
+import { EndInteraction } from "./end-interaction/EndInteraction";
 
 export const WelcomeLogin = () => {
-  const { setEndInteraction, currentPage } = useContext(ContextMaster);
-
-  const endPreview = useCallback(()=> {
-    setTimeout(()=>{setEndInteraction(true)}, 8000);
-    return <>
-      <div className={`${styles.wrapMsgReady}`}>
-        <p>Tudo pronto, aguarde um momento enquanto a ativação do servidor é finalizada.</p> 
-        <Spinner/>
-      </div>
-    </>
-  }, []);
-
+  const { currentPage } = useContext(ContextMaster);
   return <>
     {allPages.map((page, id) => {
-        if(currentPage == id){
-          const lastPage = allPages.length - 1 == id;
-          return <WelcomePage key={id} strs={page} isLastPage={lastPage}/>
-        }
-      })
-    }
-    {currentPage == allPages.length && endPreview()}
+      if(currentPage == id){
+        const lastPage = allPages.length - 1 == id;
+        return <WelcomePage key={id} strs={page} isLastPage={lastPage}/>
+      }
+    })}
+    {currentPage == allPages.length && <EndInteraction/>}
   </>
 }

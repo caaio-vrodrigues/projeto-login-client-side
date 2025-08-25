@@ -3,10 +3,11 @@ import { Main } from "@/components/main/Main";
 import { Footer } from "@/components/main/footer/Footer";
 import { Protected } from "@/auth/Protected";
 
-export default function Home() {
-  return <Protected>
+const Home = () => 
+  <Protected>
     <Header/>
     <Main/>
     <Footer/>
   </Protected>;
-}
+
+export default Home;
