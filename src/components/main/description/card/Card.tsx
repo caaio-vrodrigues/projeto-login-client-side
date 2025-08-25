@@ -7,17 +7,9 @@ type Props = {
   linkTxt: string | null,
 }
 
-export const Card = ({ text, link, linkTxt }: Props) => {
-  return <>
-    <article className={`${styles.card}`}>
-      <p>{text}</p>
-      {link && 
-        <Link 
-          href={link}
-          target='blank'
-        >
-          {linkTxt}
-        </Link>}
-    </article>
-  </>
-}
+export const Card = ({ text, link, linkTxt }: Props) => 
+  <article className={`${styles.card}`}>
+    <p>{text}</p>
+    {link && <Link href={link} target='blank'>{linkTxt}</Link>}
+  </article>
+  

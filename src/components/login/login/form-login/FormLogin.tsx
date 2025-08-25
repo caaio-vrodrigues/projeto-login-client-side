@@ -1,5 +1,4 @@
 import type { FormEvent, Dispatch, SetStateAction } from 'react';
-
 import styles from '@/components/login/login/Login.module.css';
 
 type Props = {
@@ -17,7 +16,7 @@ export const FormLogin = (props: Props) => {
     handleSubmit, email, setEmail, password, setPassword, loading, showCreateAcc 
   } = props;
 
-  return <>
+  return (
     <form className={styles.formLogin} onSubmit={handleSubmit}>
       <div className={`${styles.wrapInput} ${styles.wrapInputEmail}`}>
         <input
@@ -50,5 +49,5 @@ export const FormLogin = (props: Props) => {
         </button>
       </div>
     </form>
-  </>
+  );
 }

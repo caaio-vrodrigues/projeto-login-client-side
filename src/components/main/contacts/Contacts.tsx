@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { contacts, iconJava, oracle } from './data/contactsData';
-
+import { contacts, iconJava, oracle } from '@/data/contactsData';
 import styles from './Contact.module.css';
 import Link from 'next/link';
 
@@ -20,10 +19,7 @@ export const Contacts = () =>
     </div>
     <div className={`${styles.certificateContainer}`}>
       <div className={`${styles.wrapCertificate}`}>
-        <Link 
-          href={oracle}
-          target='blank'
-        >
+        <Link href={oracle} target='blank'>
           <FontAwesomeIcon icon={iconJava}/>
           <h2>Certified by Oracle</h2>
         </Link>

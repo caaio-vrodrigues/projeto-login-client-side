@@ -18,12 +18,14 @@ type TContextMaster = {
   loading: boolean,
   waitingServer: boolean,
   currentPage: number,
+  errMsg: string | null,
   setShowCreateAcc: Dispatch<SetStateAction<boolean>>,
   setInitServer: Dispatch<SetStateAction<boolean>>,
   setEndInteraction: Dispatch<SetStateAction<boolean>>,
   setLoading: Dispatch<SetStateAction<boolean>>,
   setWaitingServer: Dispatch<SetStateAction<boolean>>,
   setCurrentPage: Dispatch<SetStateAction<number>>,
+  setErrMsg: Dispatch<SetStateAction<string|null>>,
 }
 
 const ContextMaster = createContext<TContextMaster>({
@@ -33,12 +35,14 @@ const ContextMaster = createContext<TContextMaster>({
   loading: false,
   waitingServer: true,
   currentPage: 0,
+  errMsg: null,
   setShowCreateAcc: ()=>{},
   setInitServer: ()=>{},
   setEndInteraction: ()=>{},
   setLoading: ()=>{},
   setWaitingServer: ()=>{},
   setCurrentPage: ()=>{},
+  setErrMsg: ()=>{},
 });
 export default ContextMaster;
 
@@ -53,6 +57,7 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
   const [loading, setLoading] = useState<boolean>(false);
   const [waitingServer, setWaitingServer] = useState(true);
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const [errMsg, setErrMsg] = useState<string | null>(null);
 
   const contextValue: TContextMaster = {
     showCreateAcc, setShowCreateAcc,
@@ -61,6 +66,7 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
     loading, setLoading,
     waitingServer, setWaitingServer,
     currentPage, setCurrentPage,
+    errMsg, setErrMsg,
   }
 
   // Salvar estados/valores no session-storage

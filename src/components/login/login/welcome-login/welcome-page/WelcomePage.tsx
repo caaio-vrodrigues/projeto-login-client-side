@@ -1,9 +1,7 @@
 import ContextMaster from "@/context/ContextProvider";
 import { useContext, useState, useEffect } from "react";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-
 import styles from './WelcomePage.module.css';
 import Link from "next/link";
 

@@ -1,12 +1,12 @@
-import styles from '@/components/login/login/Login.module.css';
+import styles from '@/components/login/login/err-msg/ErrMsg.module.css';
 
 type Props = {
   loading: boolean;
   errMsg: string | null;
 }
 
-export const ErrMsg = ({ loading, errMsg }: Props) => {
-  return <>
+export const ErrMsg = ({ loading, errMsg }: Props) => 
+  <>
     {loading && (
       <div className={`${styles.wrapMsg}`}>
         <p className={`${styles.loading}`}>aguarde...</p>
@@ -18,4 +18,3 @@ export const ErrMsg = ({ loading, errMsg }: Props) => {
       </div>
     )}
   </>
-}

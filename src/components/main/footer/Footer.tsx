@@ -1,7 +1,6 @@
-import styles from './Footer.module.css';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
+import styles from './Footer.module.css';
 
 export const Footer = () => 
   <footer className={styles.foot}>

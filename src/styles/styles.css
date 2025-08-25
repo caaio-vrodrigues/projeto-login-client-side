@@ -41,4 +41,5 @@ body{
 
   --boxShadow: 0px 0px 2px 0.4px rgb(85, 103, 176);
   --sizeIcon: 22px;
+  --transition: .2s;
 }

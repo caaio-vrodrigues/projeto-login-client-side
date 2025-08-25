@@ -30,11 +30,11 @@
   color: white;
   background-color: var(--colorPrimary);
   cursor: pointer;
-  transition: .2s;
+  transition: var(--transition);
 }
 
 .buttonNextPage:hover{
-  transition: .2s;
+  transition: var(--transition);;
   background-color: rgba(14, 92, 180, 0.693);
 }
 

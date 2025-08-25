@@ -92,10 +92,6 @@
   color: black;
 }
 
-.loading{
-  color: #c6c7c9;
-}
-
 .wrapMsgAndSpinner{
   display: flex;
   flex-direction: column;
@@ -158,16 +154,6 @@
   .formLogin{
     width: 70%;
   }
-}
-
-.wrapMsg{
-  margin-top: 2rem;
-  background-color: #373838;
-  padding: .4rem;
-  border-radius: 3px;
-  color: rgb(211, 88, 88);
-  max-width: 90%;
-  hyphens: auto;
 }
 
 @media screen and (max-width: 250px){

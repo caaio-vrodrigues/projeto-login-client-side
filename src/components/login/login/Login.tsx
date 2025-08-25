@@ -1,17 +1,15 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useContext, useState, useEffect } from 'react';
-
 import { ButtonBlock } from '@/components/login/button-block/ButtonBlock';
 import { ErrMsg } from './err-msg/ErrMsg';
-
-import styles from '@/components/login/login/Login.module.css';
-import ContextMaster from '@/context/ContextProvider';
-
 import { createUser, loginAcces } from '@/connection/conn';
 import { FormLogin } from './form-login/FormLogin';
 import { WelcomeLogin } from './welcome-login/WelcomeLogin';
 import { Spinner } from '@/utils/spinner/Spinner';
+import { msgInitServer } from '@/data/consts';
+import styles from '@/components/login/login/Login.module.css';
+import ContextMaster from '@/context/ContextProvider';
 
 type Props = {
   e: React.FormEvent<HTMLFormElement>,
@@ -19,15 +17,15 @@ type Props = {
 
 export const Login = () => {
   const { 
-    showCreateAcc, setShowCreateAcc, initServer, endIntercation, loading,
-    setLoading, waitingServer, setWaitingServer,
+    showCreateAcc, endIntercation, loading, waitingServer,
+    setWaitingServer, errMsg, setErrMsg, setLoading,
+    setShowCreateAcc
   } = useContext(ContextMaster);
-
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [errMsg, setErrMsg] = useState<string | null>(null);
   const router = useRouter();
 
+  useEffect(() => { setTimeout(() => setWaitingServer(false), 8000) }, []);
   const handleSubmit = async ({ e }: Props): Promise<void> => {
     e.preventDefault();
     setErrMsg(null);
@@ -46,43 +44,35 @@ export const Login = () => {
     finally{ setLoading(false); }
   };
 
-  useEffect(() => {
-    setTimeout(() => setWaitingServer(false), 8000);
-  }, []);
-
   return(
     <section className={styles.loginSection}>
       {endIntercation ? 
         <div className={styles.loginCentralizedBlock}>
-          <> 
-            <ButtonBlock />
-            <div className={styles.loginTitle}>
-              <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
-            </div>
-            <FormLogin 
-              email={email} 
-              setEmail={setEmail} 
-              password={password} 
-              setPassword={setPassword} 
-              loading={loading}
-              handleSubmit={(e) => handleSubmit({ e })}
-              showCreateAcc={showCreateAcc} 
-            />
-          </> 
+          <ButtonBlock />
+          <div className={styles.loginTitle}>
+            <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
+          </div>
+          <FormLogin 
+            email={email} 
+            setEmail={setEmail} 
+            password={password} 
+            setPassword={setPassword} 
+            loading={loading}
+            handleSubmit={(e) => handleSubmit({ e })}
+            showCreateAcc={showCreateAcc} 
+          />
           {errMsg && <ErrMsg errMsg={errMsg} loading={loading}/>}
           {loading && <Spinner/>}
         </div> 
-        : 
-        <>
-          {waitingServer ? 
-            <div className={styles.wrapMsgAndSpinner}>
-              <p>Aguarde 10 segundos para a ativação do servidor em estado de hibernação</p>
-              <Spinner/>
-            </div>
-            : 
-            <WelcomeLogin/>
-          }
-        </>
+        : <>
+        {waitingServer ? 
+          <div className={styles.wrapMsgAndSpinner}>
+            <p>{msgInitServer}</p>
+            <Spinner/>
+          </div>
+          : 
+          <WelcomeLogin/>
+        }</>
       }
     </section>
   );

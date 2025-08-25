@@ -9,8 +9,10 @@ export const Welcome = () =>
     <div className={styles.videoBlock}>
       <iframe
         src='https://www.youtube.com/embed/weA80EhtCHs'
-        title='YouTube video player'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        title="Apresentação: Seja bem-vindo"
+        loading="lazy"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
         frameBorder='0'
         allowFullScreen />
     </div>

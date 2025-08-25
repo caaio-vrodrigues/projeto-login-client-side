@@ -6,7 +6,7 @@ import ContextMaster from '@/context/ContextProvider';
 
 export const ButtonBlock = () => {
   const {showCreateAcc, setShowCreateAcc} = useContext(ContextMaster);
-  return <>
+  return (
     <div className={styles.buttonBlock}>
       <button 
         className={styles.button}
@@ -14,5 +14,5 @@ export const ButtonBlock = () => {
         {showCreateAcc ? 'login' : 'nova conta'}
       </button>
     </div>
-  </>
+  );
 }

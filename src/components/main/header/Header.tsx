@@ -1,12 +1,9 @@
 'use client';
 import { useRouter } from 'next/navigation';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleAlt, faClose } from '@fortawesome/free-solid-svg-icons';
-
-import styles from './Header.module.css';
-
 import { logout } from '@/connection/conn';
+import styles from './Header.module.css';
 
 export const Header = () => {
   const router = useRouter();
@@ -14,7 +11,8 @@ export const Header = () => {
     logout();
     router.replace('/login');
   };
-  return <>
+  
+  return(
     <header className={styles.header}>
       <div className={`${styles.leftBlock} ${styles.block}`}>
         <FontAwesomeIcon icon={faAppleAlt}/>
@@ -29,5 +27,5 @@ export const Header = () => {
           icon={faClose}/>
       </div>
     </header>
-  </>
+  );
 }

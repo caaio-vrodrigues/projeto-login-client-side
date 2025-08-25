@@ -3,20 +3,21 @@
   padding-top: 1rem;
   padding-right: 2rem;
   margin-left: auto;
+  margin-bottom: 1.5rem;
 }
 
 .button{
   font-weight: 500;
   text-decoration: none;
   color: #ffffffd8;
-  transition: .2s;
   background-color: rgba(0, 0, 0, 0);
   border: none;
+  transition: var(--transition);
 }
 
 .button:hover{
+  transition: var(--transition);
   color: rgb(201, 201, 203);
-  transition: .2s;
   cursor: pointer;
 }
 

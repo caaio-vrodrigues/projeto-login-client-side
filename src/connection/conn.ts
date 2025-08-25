@@ -1,6 +1,6 @@
 import { LoginRequest, TokenResponse, UserDto, Props } from './typesAuth';
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
 
@@ -67,15 +67,12 @@ export const getToken = (): string | null => {
   return memoryToken;
 }
 
-export async function createUser(body: UserDto): Promise<void> {
-  console.log('executou');
+export const createUser = async (body: UserDto): Promise<void> => {
   const res = await request(body, 'create');
-  console.log('executou 2');
   await dealingErrorRequest('Falha ao criar usuário', res);
-  console.log('executou 3');
 }
 
-export async function loginAcces(credentials: LoginRequest): Promise<string> {
+export const loginAcces = async (credentials: LoginRequest): Promise<string> => {
   const res = await request(credentials, 'login');
   await dealingErrorRequest('Falha no login', res);
   const tokenRes = await res.json() as TokenResponse;
