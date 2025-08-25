@@ -1,6 +1,6 @@
 import { Card } from './card/Card';
 import styles from './Description.module.css';
-import{ cardInfos, workSummary } from './data/descriptionData';
+import{ cardInfos, workSummary } from '../../../data/descriptionData';
 
 export const Description = () =>
   <section className={`${styles.secDescription}`}>

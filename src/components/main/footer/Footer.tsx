@@ -1,4 +1,4 @@
-import styles from '@/components/footer/Footer.module.css';
+import styles from './Footer.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';

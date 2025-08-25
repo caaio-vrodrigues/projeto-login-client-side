@@ -1,9 +1,11 @@
 'use client';
 
 import { 
-  createContext, useState, useEffect, type ReactNode, type Dispatch, 
-  type SetStateAction
+  type ReactNode, type Dispatch, type SetStateAction,
+  createContext, useState, useEffect,
 } from 'react';
+
+import { saveKey } from './sessionStorage';
 
 type TProvider = {
   children: ReactNode;
@@ -12,13 +14,13 @@ type TProvider = {
 type TContextMaster = {
   showCreateAcc: boolean,
   initServer: boolean,
-  finalizedInteraction: boolean,
+  endIntercation: boolean,
   loading: boolean,
   waitingServer: boolean,
   currentPage: number,
   setShowCreateAcc: Dispatch<SetStateAction<boolean>>,
   setInitServer: Dispatch<SetStateAction<boolean>>,
-  setFinalizedInteraction: Dispatch<SetStateAction<boolean>>,
+  setEndInteraction: Dispatch<SetStateAction<boolean>>,
   setLoading: Dispatch<SetStateAction<boolean>>,
   setWaitingServer: Dispatch<SetStateAction<boolean>>,
   setCurrentPage: Dispatch<SetStateAction<number>>,
@@ -27,13 +29,13 @@ type TContextMaster = {
 const ContextMaster = createContext<TContextMaster>({
   showCreateAcc: false,
   initServer: false,
-  finalizedInteraction: false,
+  endIntercation: false,
   loading: false,
   waitingServer: true,
   currentPage: 0,
   setShowCreateAcc: ()=>{},
   setInitServer: ()=>{},
-  setFinalizedInteraction: ()=>{},
+  setEndInteraction: ()=>{},
   setLoading: ()=>{},
   setWaitingServer: ()=>{},
   setCurrentPage: ()=>{},
@@ -47,7 +49,7 @@ const FINALIZED_INTERACTION = 'finalizedInteraction';
 export function ContextMasterProvider({ children }: TProvider): React.ReactNode {
   const [showCreateAcc, setShowCreateAcc] = useState<boolean>(false);
   const [initServer, setInitServer] = useState<boolean>(false);
-  const [finalizedInteraction, setFinalizedInteraction] = useState<boolean>(false);
+  const [endIntercation, setEndInteraction] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [waitingServer, setWaitingServer] = useState(true);
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -55,47 +57,39 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
   const contextValue: TContextMaster = {
     showCreateAcc, setShowCreateAcc,
     initServer, setInitServer,
-    finalizedInteraction, setFinalizedInteraction,
+    endIntercation, setEndInteraction,
     loading, setLoading,
     waitingServer, setWaitingServer,
     currentPage, setCurrentPage,
   }
 
-   // Reidratar o sessionStorage após o mount (evita warning de hidratação)
+  // Salvar estados/valores no session-storage
   useEffect(() => {
     if (typeof window === 'undefined') return;
-      const savedWaiting = sessionStorage.getItem(WAITING_SERVER_KEY);
-      if (savedWaiting !== null) {
-        const val = savedWaiting === 'true';
-        if (val !== waitingServer) setWaitingServer(val);
-      }
+    saveKey({
+      key: WAITING_SERVER_KEY, 
+      set: setWaitingServer, 
+      val: waitingServer
+    });
+    saveKey({
+      key: FINALIZED_INTERACTION, 
+      set: setEndInteraction, 
+      val: endIntercation
+    });
+  
+    const savedPage = sessionStorage.getItem(CURRENT_PAGE_KEY);
+    if (savedPage !== null) {
+      const n = Number(savedPage);
+      if (n !== currentPage) setCurrentPage(n);
+    }
+  }, []);
 
-      const savedInteraction = sessionStorage.getItem(FINALIZED_INTERACTION);
-      if (savedInteraction !== null) {
-        const val = savedInteraction === 'true';
-        if (val !== finalizedInteraction) setFinalizedInteraction(val);
-      }
-
-      const savedPage = sessionStorage.getItem(CURRENT_PAGE_KEY);
-      if (savedPage !== null) {
-        const n = Number(savedPage);
-        if (Number.isFinite(n) && n !== currentPage) setCurrentPage(n);
-      }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // roda só uma vez, após o mount
-
-  // Persistir mudanças no sessionStorage
+  // Persistir mudanças no session-storage
   useEffect(() => {
     sessionStorage.setItem(WAITING_SERVER_KEY, String(waitingServer));
-  }, [waitingServer]);
-
-  useEffect(() => {
-    sessionStorage.setItem(FINALIZED_INTERACTION, String(finalizedInteraction));
-  }, [finalizedInteraction]);
-
-  useEffect(() => {
+    sessionStorage.setItem(FINALIZED_INTERACTION, String(endIntercation));
     sessionStorage.setItem(CURRENT_PAGE_KEY, String(currentPage));
-  }, [currentPage]);
+  }, [waitingServer, endIntercation, currentPage]);
 
   return <>
     <ContextMaster.Provider value={contextValue}>

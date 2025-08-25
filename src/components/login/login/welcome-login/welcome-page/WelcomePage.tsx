@@ -19,7 +19,7 @@ export const WelcomePage = ({ strs, isLastPage }: Props) => {
   const { currentPage, setCurrentPage  } = useContext(ContextMaster);
   const [showNext, setShowNext] = useState(false);
 
-  let time = currentPage == 0 ? 3000 : 8000;
+  let time = currentPage == 0 ? 3000 : 6000;
   if(isLastPage) time = 1000;
   
   const buttonNextPage = () => 

@@ -2,9 +2,9 @@
 import { useRouter } from 'next/navigation';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAppleAlt, faClose, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faAppleAlt, faClose } from '@fortawesome/free-solid-svg-icons';
 
-import styles from '@/components/header/Header.module.css';
+import styles from './Header.module.css';
 
 import { logout } from '@/connection/conn';
 

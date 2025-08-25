@@ -18,15 +18,11 @@ export function Protected({ children }: Props) {
       router.replace('/login');
       return;
     }
-
     setReady(true);
-
     const onStorage = (e: StorageEvent) => {
-      if(e.key === 'auth_token' && e.newValue === null){
+      if(e.key === 'auth_token' && e.newValue === null) 
         router.replace('/login');
-      }
     };
-
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
   }, [router]);

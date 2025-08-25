@@ -1,21 +1,51 @@
-import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
+import { LoginRequest, TokenResponse, UserDto, Props } from './typesAuth';
 
-const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
+const BASE_URL = 'http://localhost:8080';
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
 
-function isBrowser(): boolean {
-  return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+const isBrowser = (): boolean => 
+  typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+
+const request = async (body: any, url: string): Promise<Response> => 
+  await fetch(`${BASE_URL}/auth/${url}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(body),
+  });
+
+const setToken = (token: string): void => {
+  if (isBrowser()) {
+    localStorage.setItem(TOKEN_KEY, token);
+  } else {
+    memoryToken = token;
+  }
 }
 
-type Props = {
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  setInitServer: React.Dispatch<React.SetStateAction<boolean>>;
-};
+const dealingErrorRequest = async (msgErr: string, res: Response) => {
+  if(!res.ok){
+    const err = await res.json() as { 
+      code?: number; 
+      message?: string; 
+      path?: string 
+    }; 
+
+    if(res.status == 400)
+      throw new Error(`Sua senha deve conter no mínimo 8 dígitos`);
+    if(res.status == 500)
+      throw new Error(`E-mail já cadastrado, tente um e-mail diferente`);
+
+    const details = err && err.message ? ` - ${err.message}` : '';
+    if(res.status == 401) throw new Error(`Falha no login${details}`);
+    throw new Error(`${msgErr} (status ${res.status})${details}`);
+  }
+}
 
 export const startServer = async (props: Props): Promise<boolean> => {
   const { setInitServer, setLoading } = props;
-
   try{
     const res = await fetch(`${BASE_URL}/auth/ping`, {
       method: 'POST',
@@ -32,56 +62,9 @@ export const startServer = async (props: Props): Promise<boolean> => {
   }
 };
 
-function setToken(token: string): void {
-  if (isBrowser()) {
-    localStorage.setItem(TOKEN_KEY, token);
-  } else {
-    memoryToken = token;
-  }
-}
-
-export function getToken(): string | null {
+export const getToken = (): string | null => {
   if (isBrowser()) return localStorage.getItem(TOKEN_KEY);
   return memoryToken;
-}
-
-export function clearToken(): void {
-  if (isBrowser()) localStorage.removeItem(TOKEN_KEY);
-  memoryToken = null;
-}
-
-const request = async (body: any, url: string): Promise<Response> => {
-  return await fetch(`${BASE_URL}/auth/${url}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(body),
-  });
-}
-
-const dealingErrorRequest = async (msgErr: string, res: Response) => {
-  if(!res.ok){
-    const err = await res.json() as { 
-      code?: number; 
-      message?: string; 
-      path?: string 
-    }; 
-
-    if(res.status == 400)
-      throw new Error(`Sua senha deve conter no mínimo 8 dígitos`);
-
-    if(res.status == 500)
-      throw new Error(`E-mail já cadastrado, tente um e-mail diferente`);
-
-    const details = err && err.message ? ` - ${err.message}` : '';
-
-    if(res.status == 401)
-      throw new Error(`Falha no login${details}`);
-    
-    throw new Error(`${msgErr} (status ${res.status})${details}`);
-  }
 }
 
 export async function createUser(body: UserDto): Promise<void> {
@@ -98,8 +81,7 @@ export async function loginAcces(credentials: LoginRequest): Promise<string> {
   return tokenRes.token;
 }
 
-export const logout = (): void => clearToken();
-
-export default { 
-  startServer, createUser, loginAcces, getToken, clearToken, logout 
-};
+export const logout = (): void => {
+  if (isBrowser()) localStorage.removeItem(TOKEN_KEY);
+  memoryToken = null;
+}

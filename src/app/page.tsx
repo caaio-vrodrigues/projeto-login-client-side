@@ -1,7 +1,7 @@
-import { Header } from "@/components/header/Header";
+import { Header } from "@/components/main/header/Header";
 import { Main } from "@/components/main/Main";
-import { Footer } from "@/components/footer/Footer";
-import { Protected } from "@/components/login/auth/Protected";
+import { Footer } from "@/components/main/footer/Footer";
+import { Protected } from "@/auth/Protected";
 
 export default function Home() {
   return <Protected>

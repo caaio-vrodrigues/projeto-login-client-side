@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useContext, useState, useEffect, useRef } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 import { ButtonBlock } from '@/components/login/button-block/ButtonBlock';
 import { ErrMsg } from './err-msg/ErrMsg';
@@ -19,7 +19,7 @@ type Props = {
 
 export const Login = () => {
   const { 
-    showCreateAcc, setShowCreateAcc, initServer, finalizedInteraction, loading,
+    showCreateAcc, setShowCreateAcc, initServer, endIntercation, loading,
     setLoading, waitingServer, setWaitingServer,
   } = useContext(ContextMaster);
 
@@ -59,7 +59,7 @@ export const Login = () => {
 
   return <>
     <section className={styles.loginSection}>
-      {finalizedInteraction ? 
+      {endIntercation ? 
         <div className={styles.loginCentralizedBlock}>
           {initServer ? 
             <> 
