@@ -48,19 +48,21 @@ export const Login = () => {
     <section className={styles.loginSection}>
       {endIntercation ? 
         <div className={styles.loginCentralizedBlock}>
-          <ButtonBlock />
-          <div className={styles.loginTitle}>
-            <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
-          </div>
-          <FormLogin 
-            email={email} 
-            setEmail={setEmail} 
-            password={password} 
-            setPassword={setPassword} 
-            loading={loading}
-            handleSubmit={(e) => handleSubmit({ e })}
-            showCreateAcc={showCreateAcc} 
-          />
+          {!loading && <>
+            <ButtonBlock />
+            <div className={styles.loginTitle}>
+              <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
+            </div>
+            <FormLogin 
+              email={email} 
+              setEmail={setEmail} 
+              password={password} 
+              setPassword={setPassword} 
+              loading={loading}
+              handleSubmit={(e) => handleSubmit({ e })}
+              showCreateAcc={showCreateAcc} 
+            />
+          </>}
           {errMsg && <ErrMsg errMsg={errMsg}/>}
           {loading && !errMsg &&
             <div className={styles.wrapMsgAndSpinner}>

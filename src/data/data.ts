@@ -6,7 +6,7 @@ export const allPages = [
     },
     {
       id: 1, 
-      str: "O propósito central deste projeto é apresentar um sistema de login abrangente. Ele inclui verificação de sessão e armazenamento de dados. Para isso, utiliza um backend desenvolvido em Java, empregando recursos como CRUD, DTO, CORS, DB-H2 e outros componentes do Spring Boot."
+      str: "Como propósito central venho apresentar um sistema de login completo, incluindo verificação de sessão e armazenamento de dados com H2 em um backend desenvolvido em Java, empregando recursos como CRUD, DTO, CORS, DB-H2 e outros componentes do Spring Boot."
     }
   ],
   [
@@ -24,13 +24,13 @@ export const allPages = [
   [
     {
       id: 0, 
-      str: "Para desenvolver o frontend, utilizei o React-js juntamente com Next-js. Esta combinação oferece os recursos essenciais para a estrutura da aplicação. A escolha do React deve-se à sua capacidade de componentização e segmentação do código. Seu sistema de reações isoladas contribui para um desenvolvimento prático e organizado."
+      str: "Para desenvolver o frontend, utilizei o React-js juntamente com Next-js. Esta combinação oferece os recursos essenciais para a estrutura da aplicação. A escolha do React deve-se à sua capacidade de componentização e segmentação do código combinada com um sistema de reações isoladas que contribui para um desenvolvimento prático e organizado."
     },
   ],
   [
     {
       id: 0, 
-      str: "O design da aplicação foi desenvolvido integralmente com HTML e CSS. Não houve utilização de frameworks ou bibliotecas, como Bootstrap ou Materialize, para componentes de layout. A responsividade foi implementada exclusivamente com propriedades de redimensionamento do CSS."
+      str: "O design da aplicação foi desenvolvido integralmente com HTML e CSS, não houve utilização de frameworks ou bibliotecas como Bootstrap ou Materialize para componetes com design customizado. Para a responsividade do layout, sua implementação foi realizada utilizando exclusivamente as propriedades de redimensionamento do CSS puro."
     },
   ],
   [
@@ -40,7 +40,7 @@ export const allPages = [
     },
     {
       id: 1, 
-      str: "O framework Springboot foi essencial para o desenvolvimento do aplicativo. A combinação de Java + Springboot proporciona uma estruturação eficaz de pacotes no desenvolvimento do backend. Isso facilita a criação de APIs para serviços REST, como os empregados neste projeto."
+      str: "O framework Springboot foi essencial para o desenvolvimento do aplicativo. A combinação de Java + Springboot proporciona uma estruturação eficaz de pacotes no desenvolvimento do backend. Isso facilita a criação de API's para serviços REST, como os empregados neste projeto."
     },
   ],
   [

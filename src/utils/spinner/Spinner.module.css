@@ -16,7 +16,7 @@
   }
 }
 
-@media screen and (max-width: 250px){
+@media screen and (max-width: 600px){
   .spinner{
     width: 1.5rem;
     height: 1.5rem;
