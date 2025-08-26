@@ -1,4 +1,4 @@
-import { LoginRequest, TokenResponse, UserDto, Props } from './typesAuth';
+import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
 
 const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
 const TOKEN_KEY = 'auth_token';
@@ -46,8 +46,7 @@ const dealingErrorRequest = async (msgErr: string, res: Response) => {
   }
 }
 
-export const startServer = async (props: Props): Promise<boolean> => {
-  const { setInitServer } = props;
+export const startServer = async (): Promise<boolean> => {
   try{
     const res = await fetch(`${BASE_URL}/auth/ping`, {
       method: 'POST',
@@ -59,7 +58,6 @@ export const startServer = async (props: Props): Promise<boolean> => {
     console.error(err);
     return false;
   }
-  finally{ setInitServer(true); }
 };
 
 export const getToken = (): string | null => {

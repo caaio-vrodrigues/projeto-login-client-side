@@ -32,6 +32,7 @@
 .rightWrapCard{
   border-left: 1px solid rgb(14, 91, 180);
   padding-left: 1rem;
+  hyphens: auto;
 }
 
 .rightWrapCard p{
@@ -56,6 +57,7 @@
 
   .wrapCards{
     font-size: 14px;
+    display: contents;
   }
 }
 

@@ -21,9 +21,11 @@
   height: var(--sizeIcon);
   color: var(--colorPrimary);
   cursor: pointer;
+  transition: .2s;
 }
 
 .iconContact svg:hover{
+  transition: .2s;
   color: var(--colorPrimaryHover);
 }
 
@@ -41,9 +43,11 @@
   color: var(--colorPrimary);
   width: 7.3rem;
   margin: auto;
+  transition: .2s;
 }
 
 .wrapCertificate a:hover{
+  transition: .2s;
   color: var(--colorPrimaryHover);
 }
 

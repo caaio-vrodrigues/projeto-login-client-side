@@ -8,6 +8,7 @@
   text-align: justify;
   background-color: rgba(137, 172, 220, 0.811);
   border-radius: 5px;
+  hyphens: auto;
 }
 
 .card p{

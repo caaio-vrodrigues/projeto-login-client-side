@@ -13,14 +13,12 @@ type TProvider = {
 
 type TContextMaster = {
   showCreateAcc: boolean,
-  initServer: boolean,
   endIntercation: boolean,
   loading: boolean,
   waitingServer: boolean,
   currentPage: number,
   errMsg: string | null,
   setShowCreateAcc: Dispatch<SetStateAction<boolean>>,
-  setInitServer: Dispatch<SetStateAction<boolean>>,
   setEndInteraction: Dispatch<SetStateAction<boolean>>,
   setLoading: Dispatch<SetStateAction<boolean>>,
   setWaitingServer: Dispatch<SetStateAction<boolean>>,
@@ -30,14 +28,12 @@ type TContextMaster = {
 
 const ContextMaster = createContext<TContextMaster>({
   showCreateAcc: false,
-  initServer: false,
   endIntercation: false,
   loading: false,
   waitingServer: true,
   currentPage: 0,
   errMsg: null,
   setShowCreateAcc: ()=>{},
-  setInitServer: ()=>{},
   setEndInteraction: ()=>{},
   setLoading: ()=>{},
   setWaitingServer: ()=>{},
@@ -52,7 +48,6 @@ const FINALIZED_INTERACTION = 'finalizedInteraction';
 
 export function ContextMasterProvider({ children }: TProvider): React.ReactNode {
   const [showCreateAcc, setShowCreateAcc] = useState<boolean>(false);
-  const [initServer, setInitServer] = useState<boolean>(false);
   const [endIntercation, setEndInteraction] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [waitingServer, setWaitingServer] = useState(true);
@@ -61,7 +56,6 @@ export function ContextMasterProvider({ children }: TProvider): React.ReactNode 
 
   const contextValue: TContextMaster = {
     showCreateAcc, setShowCreateAcc,
-    initServer, setInitServer,
     endIntercation, setEndInteraction,
     loading, setLoading,
     waitingServer, setWaitingServer,

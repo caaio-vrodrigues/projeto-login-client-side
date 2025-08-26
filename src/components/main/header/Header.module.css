@@ -33,9 +33,11 @@
 
 .closeIcon{
   cursor: pointer;
+  transition: .2s;
 }
 
 .closeIcon:hover{
+  transition: .2s;
   color: var(--colorPrimaryHover);
 }
 

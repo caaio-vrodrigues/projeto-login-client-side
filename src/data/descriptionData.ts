@@ -1,13 +1,13 @@
 export const cardInfos = [
   {
     id: 0,
-    text: 'Aplicação criada do absoluto zero para exemplificar algumas de minhas capacitações no frontend e backend.',
+    text: 'Esta aplicação é um SPA que demonstra um sistema de login completo. O propósito central é desenvolver duas aplicações e conectá-las por meio de recursos REST.',
     link: null,
     linkTxt: null,
   },
   {
     id: 1,
-    text: "As principais tecnologias utilizadas para desenvolver essa aplicação foram 'Java + Springboot' e 'React + Next-Js'. Além disso, a aplicação está disponível rodando em tempo real pelas plataformas Vercel para o frontend e Render para o backend.",
+    text: "HTML; CSS; Javascrip; React-js; Next-js; SPA; Responsividade; CRUD; Java; Springboot; API-REST; DTO; DB-H2; Client Side UI/UX; Vercel; Render; Git; SQL",
     link: null,
     linkTxt: null,
   },
@@ -25,4 +25,4 @@ export const cardInfos = [
   },
 ];
 
-export const workSummary = 'Sou Desenvolvedor de Sistemas, focado em construir soluções completas. Em agosto de 2025 conquistei minha primeira certificação da Oracle, a Java SE 8, consolidando minha base na linguagem. Essa conquista reforça meu compromisso em cumprir meu objetivo principal, me tornar especialista em Java! No backend, desenvolvo APIs com integração a bancos de dados e serviços externos, já no frontend atuo com React para entregar interfaces modernas, responsivas e acessíveis, orientadas à experiência do usuário. Tenho habilidade para conectar frontend e backend, garantindo fluxo de dados consistente. Ainda não atuo em nível sênior, mas consigo criar um sistema completo partido do absoluto zero. Sou capaz de colocar em produção aplicações completas, do design ao banco de dados, como essa aplicação que simula uma realização de login e acesso ao sistema, para construí-la também parti do absoluto zero.';
+export const workSummary = `Sou desenvolvedor backend com foco em Java, construção de APIs e princípios REST. Obtive a certificação Oracle Certified Professional, Java SE 8, em agosto de 2025. No frontend, atuo com React.js na implementação de interfaces modernas e responsivas. Tenho me dedicado a projetos que integram Java e REST para entrega de funcionalidades claras. Utilizo Spring Boot para estruturar serviços e facilitar o desenvolvimento de APIs. Após conquistar a certificação, um dos meus objetivos atuais é me especializar em Spring Boot. Busco aprofundar boas práticas de definição de endpoints e tratamento de requisições REST. Este projeto demonstra meu trabalho ao separar backend e frontend em serviços distintos. As duas aplicações estão hospedadas em servidores diferentes e permanecem conectadas em tempo real. O backend em Java expõe uma API REST que centraliza regras e comunicação dos dados. O frontend em React.js consome a API, assegurando fluxo contínuo entre cliente e servidor. A API é organizada em recursos e métodos aderentes aos verbos REST. O projeto evidencia clareza na separação de responsabilidades entre cliente e servidor. Minha atuação prioriza simplicidade, coerência semântica e previsibilidade nas rotas.`;

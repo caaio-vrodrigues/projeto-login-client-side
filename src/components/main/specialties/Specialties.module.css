@@ -30,8 +30,23 @@
   align-items: center;
 }
 
+.blockSpecialtCenter button{
+  display: flex;
+  flex-direction: column;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
 .blockSpecialtCenter svg{
   height: 1.5rem;
+  width: inherit;
+  transition: .2s;
+}
+
+.blockSpecialtCenter svg:hover{
+  transition: .2s;
+  color: var(--colorPrimaryHover);
 }
 
 @media screen and (max-width: 600px){

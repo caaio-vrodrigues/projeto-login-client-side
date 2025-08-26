@@ -61,17 +61,20 @@ export const Login = () => {
             handleSubmit={(e) => handleSubmit({ e })}
             showCreateAcc={showCreateAcc} 
           />
-          {errMsg && <ErrMsg errMsg={errMsg} loading={loading}/>}
-          {loading && <Spinner/>}
+          {errMsg && <ErrMsg errMsg={errMsg}/>}
+          {loading && !errMsg &&
+            <div className={styles.wrapMsgAndSpinner}>
+              <p>Aguarde um momento enquanto o processo é finalizado</p>
+              <Spinner/>  
+            </div>}
         </div> 
         : <>
         {waitingServer ? 
           <div className={styles.wrapMsgAndSpinner}>
             <p>{msgInitServer}</p>
             <Spinner/>
-          </div>
-          : 
-          <WelcomeLogin/>
+          </div> 
+          : <WelcomeLogin/>
         }</>
       }
     </section>
