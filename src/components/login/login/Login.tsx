@@ -7,7 +7,8 @@ import { createUser, loginAcces } from '@/connection/conn';
 import { FormLogin } from './form-login/FormLogin';
 import { WelcomeLogin } from './welcome-login/WelcomeLogin';
 import { Spinner } from '@/utils/spinner/Spinner';
-import { msgInitServer } from '@/data/consts';
+import { msgWaitBlock, waitServerBlock } from './LoginBlocks';
+
 import styles from '@/components/login/login/Login.module.css';
 import ContextMaster from '@/context/ContextProvider';
 
@@ -17,15 +18,15 @@ type Props = {
 
 export const Login = () => {
   const { 
-    showCreateAcc, endIntercation, loading, waitingServer,
-    setWaitingServer, errMsg, setErrMsg, setLoading,
-    setShowCreateAcc
+    showCreateAcc, endIntercation, loading, waitingServer, setWaitingServer, 
+    errMsg, setErrMsg, setLoading, setShowCreateAcc
   } = useContext(ContextMaster);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const router = useRouter();
 
-  useEffect(() => { setTimeout(() => setWaitingServer(false), 8000) }, []);
+  useEffect(() => {setTimeout(() => setWaitingServer(false), 8000)}, []);
+
   const handleSubmit = async ({ e }: Props): Promise<void> => {
     e.preventDefault();
     setErrMsg(null);
@@ -40,45 +41,38 @@ export const Login = () => {
       router.replace('/');
       return;
     } 
-    catch(e){ e instanceof Error && setErrMsg(e.message); } 
-    finally{ setLoading(false); }
+    catch(e){e instanceof Error && setErrMsg(e.message)} 
+    finally{setLoading(false)}
   };
+
+  const formBlock = () => <>
+    <div className={styles.loginTitle}>
+      <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
+    </div>
+    <FormLogin 
+      email={email} 
+      setEmail={setEmail} 
+      password={password} 
+      setPassword={setPassword} 
+      loading={loading}
+      handleSubmit={(e) => handleSubmit({ e })}
+      showCreateAcc={showCreateAcc} 
+    />
+  </>
 
   return(
     <section className={styles.loginSection}>
       {endIntercation ? 
         <div className={styles.loginCentralizedBlock}>
-          {!loading && <>
-            <ButtonBlock />
-            <div className={styles.loginTitle}>
-              <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
-            </div>
-            <FormLogin 
-              email={email} 
-              setEmail={setEmail} 
-              password={password} 
-              setPassword={setPassword} 
-              loading={loading}
-              handleSubmit={(e) => handleSubmit({ e })}
-              showCreateAcc={showCreateAcc} 
-            />
-          </>}
+          <ButtonBlock />
+          {loading && !showCreateAcc && formBlock()}
+          {!errMsg && loading && showCreateAcc && msgWaitBlock()}
+          {!errMsg && loading && !showCreateAcc && <Spinner/>}
+          {!loading && formBlock()}
           {errMsg && <ErrMsg errMsg={errMsg}/>}
-          {loading && !errMsg &&
-            <div className={styles.wrapMsgAndSpinner}>
-              <p>Aguarde um momento enquanto o processo é finalizado</p>
-              <Spinner/>  
-            </div>}
         </div> 
-        : <>
-        {waitingServer ? 
-          <div className={styles.wrapMsgAndSpinner}>
-            <p>{msgInitServer}</p>
-            <Spinner/>
-          </div> 
-          : <WelcomeLogin/>
-        }</>
-      }
+        : 
+        <>{waitingServer ? waitServerBlock() : <WelcomeLogin/>}</>}
     </section>
   );
 };
