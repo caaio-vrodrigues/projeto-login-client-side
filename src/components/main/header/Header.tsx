@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAppleAlt, faClose } from '@fortawesome/free-solid-svg-icons';
-import { logout } from '@/connection/conn';
+import { logout } from '@/server/connection/conn';
 import styles from './Header.module.css';
 
 export const Header = () => {

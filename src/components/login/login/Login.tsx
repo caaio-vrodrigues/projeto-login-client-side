@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import { useContext, useState, useEffect } from 'react';
 import { ButtonBlock } from '@/components/login/button-block/ButtonBlock';
 import { ErrMsg } from './err-msg/ErrMsg';
-import { createUser, loginAcces } from '@/connection/conn';
+import { createUser, loginAcces } from '@/server/connection/conn';
 import { FormLogin } from './form-login/FormLogin';
 import { WelcomeLogin } from './welcome-login/WelcomeLogin';
 import { Spinner } from '@/utils/spinner/Spinner';

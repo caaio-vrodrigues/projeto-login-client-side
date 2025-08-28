@@ -1,6 +1,6 @@
 'use client';
 import { useEffect } from 'react';
-import { startServer } from '@/connection/conn';
+import { startServer } from '@/server/connection/conn';
 
 export const ServerWarmup = () => {
   const SESSION_KEY = 'serverWarmed';

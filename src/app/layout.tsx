@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import '@/styles/styles.css';
 import { ContextMasterProvider } from '@/context/ContextProvider';
-import { ServerWarmup } from '@/components/server/ServerWarmup';
+import { ServerWarmup } from '@/server/ServerWarmup';
 
 export const metadata: Metadata = {
   title: 'Login Project',
