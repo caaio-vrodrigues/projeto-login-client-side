@@ -1,6 +1,6 @@
 import { LoginRequest, TokenResponse, UserDto } from './typesAuth';
 
-const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
+const BASE_URL = 'https://crud-springboot-e4ao.onrender.com/';
 const TOKEN_KEY = 'auth_token';
 let memoryToken: string | null = null;
 
