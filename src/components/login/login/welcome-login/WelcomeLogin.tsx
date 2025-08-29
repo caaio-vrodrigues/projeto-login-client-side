@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { WelcomePage } from "./welcome-page/WelcomePage";
 import ContextMaster from "@/context/ContextProvider";
-import { allPages } from '../../../../data/data';
+import { allPages } from '../../../../data/previewData';
 import { EndInteraction } from "./end-interaction/EndInteraction";
 
 export const WelcomeLogin = () => {

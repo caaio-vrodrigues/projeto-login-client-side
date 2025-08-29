@@ -18,7 +18,7 @@ type Props = {
 
 export const Login = () => {
   const { 
-    showCreateAcc, endIntercation, loading, waitingServer, setWaitingServer, 
+    showCreateAcc, endPreview, loading, waitingServer, setWaitingServer, 
     errMsg, setErrMsg, setLoading, setShowCreateAcc
   } = useContext(ContextMaster);
   const [email, setEmail] = useState<string>('');
@@ -62,7 +62,7 @@ export const Login = () => {
 
   return(
     <section className={styles.loginSection}>
-      {endIntercation ? 
+      {endPreview ? 
         <div className={styles.loginCentralizedBlock}>
           <ButtonBlock />
           {loading && !showCreateAcc && formBlock()}
