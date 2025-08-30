@@ -1,7 +1,7 @@
-import ContextMaster from "@/context/ContextProvider";
+import { ContextMaster } from "@/context/ContextProvider";
 import { useContext, useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './WelcomePage.module.css';
 import Link from "next/link";
 
@@ -21,7 +21,7 @@ export const WelcomePage = ({ strs, isLastPage }: Props) => {
   
   const buttonNextPage = () => 
     <FontAwesomeIcon 
-      icon={faArrowRight}
+      icon={faAnglesRight}
       className={styles.buttonNextPage}
       onClick={()=>setCurrentPage(currentPage + 1)}
     />

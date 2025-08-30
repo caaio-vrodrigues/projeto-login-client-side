@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e5e5e695;
-  padding: 1rem;
-  border-radius: 5px;
+  color: var(--colorPrimary);
+  max-width: 24rem;
 }
 
 .wrapMsgReady p{
   text-align: justify;
-  hyphens: auto; /* quebra de palavra */
+  hyphens: auto;
 }
 
 @media screen and (max-width: 250px){

@@ -27,21 +27,16 @@ const setToken = (token: string): void => {
 
 const dealingErrorRequest = async (msgErr: string, res: Response) => {
   if(!res.ok){
-    const err = await res.json() as { 
-      code?: number; 
-      message?: string; 
-      path?: string 
-    }; 
-    const details = err && err.message ? ` - ${err.message}` : '';
+    const er = await res.json() as {code?:number, message?:string, path?:string,};
+    const details = er && er.message ? ` - ${er.message}` : '';
 
-    if(err.message?.toLowerCase() == 'failed to fetch')
+    if(er.message?.toLowerCase() == 'failed to fetch')
       throw new Error(`Falha na requisição`);
     if(res.status == 400)
       throw new Error(`Sua senha deve conter no mínimo 8 dígitos`);
     if(res.status == 500)
       throw new Error(`E-mail já cadastrado, tente um e-mail diferente`);
     if(res.status == 401) throw new Error(`Falha no login ${details}`);
-
     throw new Error(`${msgErr} (status ${res.status})${details}`);
   }
 }
@@ -54,10 +49,7 @@ export const startServer = async (): Promise<boolean> => {
     });
     return res.ok;
   } 
-  catch(err) {
-    console.error(err);
-    return false;
-  }
+  catch(err) {console.error(err); return false};
 };
 
 export const getToken = (): string | null => {

@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import ContextMaster from "@/context/ContextProvider";
+import { ContextMaster } from "@/context/ContextProvider";
 import styles from '../WelcomeLogin.module.css';
 import { msgEndInteraction } from '@/data/consts';
 import { Spinner } from "@/utils/spinner/Spinner";

@@ -8,9 +8,9 @@ import { FormLogin } from './form-login/FormLogin';
 import { WelcomeLogin } from './welcome-login/WelcomeLogin';
 import { Spinner } from '@/utils/spinner/Spinner';
 import { msgWaitBlock, waitServerBlock } from './LoginBlocks';
-
+import { ContextMaster } from '@/context/ContextProvider';
 import styles from '@/components/login/login/Login.module.css';
-import ContextMaster from '@/context/ContextProvider';
+
 
 type Props = {
   e: React.FormEvent<HTMLFormElement>,
@@ -25,7 +25,7 @@ export const Login = () => {
   const [password, setPassword] = useState<string>('');
   const router = useRouter();
 
-  useEffect(() => {setTimeout(() => setWaitingServer(false), 8000)}, []);
+  useEffect(() => {setTimeout(()=>setWaitingServer(false), 8000)}, []);
 
   const handleSubmit = async ({ e }: Props): Promise<void> => {
     e.preventDefault();

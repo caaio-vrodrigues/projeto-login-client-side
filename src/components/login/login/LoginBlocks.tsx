@@ -5,7 +5,7 @@ import styles from './Login.module.css';
 
 export const msgWaitBlock = () =>
   <div className={styles.wrapMsgAndSpinner}>
-    <p>Aguarde um momento enquanto o processo é finalizado</p>
+    <p>Aguarde um momento enquanto o processo é finalizado.</p>
     <Spinner/>  
   </div>
 

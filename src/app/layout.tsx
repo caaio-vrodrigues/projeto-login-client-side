@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import '@/styles/styles.css';
-import { ContextMasterProvider } from '@/context/ContextProvider';
+import { ContextProvider } from '@/context/ContextProvider';
 import { ServerWarmup } from '@/server/ServerWarmup';
 
 export const metadata: Metadata = {
@@ -14,10 +14,10 @@ type Props = Readonly<{children: React.ReactNode;}>
 const RootLayout = ({ children }: Props) => 
   <html lang='pt-BR'>
     <body suppressHydrationWarning={true}>
-      <ContextMasterProvider>
+      <ContextProvider>
         <ServerWarmup/>
         {children}
-      </ContextMasterProvider>
+      </ContextProvider>
     </body>
   </html>
 
