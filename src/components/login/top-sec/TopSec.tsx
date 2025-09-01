@@ -10,7 +10,7 @@ import styles from './TopSec.module.css';
 export const TopSec = () => {
   return(
     <section className={`${styles.secTop}`}>
-      <div>
+      <div className={styles.wrapTopElements}>
         <span className={styles.spanNone}>Sistema desenvolvido por Caio Vinicius Rodrigues</span>
         <div className={`${styles.containerWrapDeveloper}`}>
           <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperFirst}`}>

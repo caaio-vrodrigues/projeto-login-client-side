@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: end;
-  margin-bottom: 1.5rem;
-  width: 100%;
+  width: 15rem;
+  margin-bottom: .5rem;
 }
 
 .buttonBlock span{
@@ -32,12 +32,6 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px){
-  .buttonBlock{
-    height: 3rem;
-  }
-}
-
 @media screen and (max-width: 360px){
   .buttonBlock span{
     padding-left: 5px;
@@ -50,8 +44,20 @@
   }
 }
 
-@media screen and (max-width: 291px){
+@media screen and (max-width: 265px){
   .buttonBlock{
-    height: 5rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttonBlock span{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 260px){
+  .wrapSuccessMsg{
+    min-width: 10rem;
   }
 }
