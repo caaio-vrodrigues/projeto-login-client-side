@@ -10,7 +10,7 @@ export const EndInteraction = () => {
   return (
     <div className={`${styles.wrapMsgReady}`}>
       <p>{msgEndInteraction}</p> 
-      <Spinner/>
+      <Spinner login={false}/>
     </div>
   );
 }
