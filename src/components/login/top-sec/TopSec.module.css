@@ -1,0 +1,126 @@
+.secTop{
+  width: 100%;
+  height: 100%;
+  font-family: "Quicksand", sans-serif;
+  color: var(--purpleBlue);
+  font-weight: 700;
+  padding: 1rem 1rem;
+}
+
+.containerWrapDeveloper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 8rem;
+  background: linear-gradient(to top, rgb(221, 222, 223), rgba(221, 222, 223, 0));;
+  border-radius: 5px;
+}
+
+.wrapDeveloper{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: fit-content;
+  border-right: 1px solid var(--purpleBlue);
+  padding: .5rem;
+}
+
+.wrapDeveloperLast{
+  border-right: none;
+}
+
+.wrapDeveloper{
+  hyphens: auto;
+}
+
+.wrapDeveloper span{
+  hyphens: auto;
+  text-align: center;
+  font-size: 13px;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: .8rem;
+  padding: .3rem;
+  border-radius: 10px;
+  background-color: rgba(221, 222, 223, 0.852);
+}
+
+.wrapIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 3rem;
+  width: 4.3rem;
+  border: 1px solid var(--purpleBlue);
+  background-color: var(--purpleBlue);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  margin: auto;
+  color: white;
+}
+
+.wrapIcon svg{
+  width: 30px;
+  height: 30px;
+}
+
+.wrapDeveloperFirst{
+  font-size: 13px;
+}
+
+.wrapDeveloperFirst svg{
+  width: 17px;
+  height: 17px;
+  margin-right: .2rem;
+}
+
+.wrapDeveloperLast svg{
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 750px){
+  .wrapDeveloper span{
+    height: 3rem;
+    text-align: justify;
+  }
+
+  .containerWrapDeveloper{
+    height: 6.2rem;
+  }
+}
+
+@media screen and (max-width: 650px){
+  .wrapDeveloper span{
+    height: 3.2rem;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 525px){
+  .wrapDeveloper span{
+    height: 4rem;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 440px){
+  .wrapDeveloper{
+    display: none;
+  }
+
+  .wrapDeveloperFirst{
+    display: flex;
+    width: 100%;
+    border-right: none;
+  }
+
+  .wrapDeveloperFirst span{
+    height: fit-content;
+    text-align: center;
+  }
+}

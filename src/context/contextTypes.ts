@@ -6,11 +6,13 @@ export type ProviderProps = { children: ReactNode; }
 
 export type TContextMaster = {
   showCreateAcc: boolean, endPreview: boolean, loading: boolean, 
-  waitingServer: boolean, currentPage: number, errMsg: string | null,
+  waitingServer: boolean, currentPage: number, errMsg: string|null, 
+  succesAssign: boolean|null, 
   setShowCreateAcc: Dispatch<SetStateAction<boolean>>,
   setEndPreview: Dispatch<SetStateAction<boolean>>,
   setLoading: Dispatch<SetStateAction<boolean>>,
   setWaitingServer: Dispatch<SetStateAction<boolean>>,
   setCurrentPage: Dispatch<SetStateAction<number>>,
   setErrMsg: Dispatch<SetStateAction<string|null>>,
+  setSuccessAssign: Dispatch<SetStateAction<boolean|null>>,
 }

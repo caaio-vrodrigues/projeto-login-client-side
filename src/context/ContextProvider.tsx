@@ -8,7 +8,7 @@ export const ContextMaster = createContext<TContextMaster>({
   showCreateAcc: false, setShowCreateAcc: ()=>{}, endPreview: false,
   setEndPreview: ()=>{}, loading: false, setLoading: ()=>{}, waitingServer: true, 
   setWaitingServer: ()=>{}, currentPage: 0, setCurrentPage: ()=>{}, errMsg: null, 
-  setErrMsg: ()=>{},
+  setErrMsg: ()=>{}, succesAssign: null, setSuccessAssign: ()=>{},
 });
 
 export const ContextProvider = (props: ProviderProps): React.ReactNode => {
@@ -22,10 +22,11 @@ export const ContextProvider = (props: ProviderProps): React.ReactNode => {
   const [waitingServer, setWaitingServer] = useState(true);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [errMsg, setErrMsg] = useState<string | null>(null);
+  const [succesAssign, setSuccessAssign] = useState<boolean|null>(null);
   const contextValue: TContextMaster = {
     showCreateAcc, setShowCreateAcc, endPreview, setEndPreview, loading, 
     setLoading, waitingServer, setWaitingServer, currentPage, setCurrentPage,
-    errMsg, setErrMsg,
+    errMsg, setErrMsg, succesAssign, setSuccessAssign,
   }
 
   // Verificar e resgatar valores em session-storage

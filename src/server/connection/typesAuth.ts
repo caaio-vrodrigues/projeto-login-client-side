@@ -12,3 +12,8 @@ export type UserDto = Record<string, unknown>;
 export type Props = {
   setInitServer: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export type createUserProps = {
+  body: UserDto,
+  setShowModal: React.Dispatch<React.SetStateAction<boolean|null>>;
+}

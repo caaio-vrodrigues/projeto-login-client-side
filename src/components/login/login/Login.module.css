@@ -1,5 +1,6 @@
-.loginSection{
+.loginContainer{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -18,10 +19,6 @@
   margin-bottom: 3rem;
 }
 
-.formLogin{
-  display: flex;
-}
-
 .loginTitle{
   margin-bottom: 1rem;
 }
@@ -31,66 +28,6 @@
   font-size: 20px;
   color: var(--colorPrimary);
   font-weight: 700;
-}
-
-.wrapInputs{
-  display: flex;
-  justify-content: space-between;
-  width: 70%;
-}
-
-.wrapInput{
-  width: 100%;
-}
-
-.wrapInput input{
-  width: 100%;
-  padding: .2rem;
-  border: none;
-  border-radius: 5px;
-  box-sizing: border-box;
-  outline: none;
-  border: 1px solid var(--colorPrimary);
-  color: var(--colorPrimary);
-  letter-spacing: var(--letterSpacingText);
-}
-
-.wrapInput input::placeholder{
-  font-weight: 500;
-  color: rgba(102, 167, 225, 0.705);
-}
-
-.wrapInputPassword{
-  margin-left: .3rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.passwordInput {
-  width: 100%;
-}
-
-.submitBtn{
-  position: absolute;
-  right: 0.001px;
-  top: 49.9%;
-  transform: translateY(-50%);
-  height: 100%;
-  width: 3.5rem;
-  border: none;
-  background-color: var(--colorPrimary);
-  color: #fff;
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 12px;
-}
-
-.submitBtn:hover{
-  transition: var(--transition);
-  background-color: var(--colorPrimaryHover);
 }
 
 .wrapMsgAndSpinner{
@@ -111,21 +48,6 @@
   .loginTitle h1{
     font-size: 18px;
   }
-
-  .wrapInput input{
-    height: 1.5rem;
-    padding: .2rem;
-    font-size: 12px;
-  }
-
-  .formLogin{
-    width: 88%;
-  }
-
-  .submitBtn{
-    width: 2.5rem;
-    font-size: 11px;
-  }
 }
 
 @media screen and (max-width: 410px){
@@ -135,25 +57,6 @@
 
   .loginTitle h1{
     font-size: 17px;
-  }
-
-  .formLogin{
-    flex-wrap: wrap;
-  }
-
-  .wrapInputPassword{
-    margin-left: 0;
-    margin-top: 5px;
-  }
-
-  .formLogin{
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 300px){
-  .formLogin{
-    width: 90%;
   }
 }
 

@@ -1,5 +1,7 @@
 import type { FormEvent, Dispatch, SetStateAction } from 'react';
-import styles from '@/components/login/login/Login.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouseUser, faShare } from '@fortawesome/free-solid-svg-icons';
+import styles from './FormLogin.module.css';
 
 type Props = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void>;
@@ -45,7 +47,9 @@ export const FormLogin = (props: Props) => {
           className={styles.submitBtn} 
           disabled={loading}
         >
-          {showCreateAcc ? 'enviar' : 'entrar'}
+          {showCreateAcc ? 
+            <><span>cadastrar</span><FontAwesomeIcon icon={faShare}/></> 
+            : <><span>entrar</span><FontAwesomeIcon icon={faHouseUser}/></>}
         </button>
       </div>
     </form>

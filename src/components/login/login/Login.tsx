@@ -10,7 +10,9 @@ import { Spinner } from '@/utils/spinner/Spinner';
 import { msgWaitBlock, waitServerBlock } from './LoginBlocks';
 import { ContextMaster } from '@/context/ContextProvider';
 import styles from '@/components/login/login/Login.module.css';
-
+import { SuccessAssign } from './success-assign/SuccessAssign';
+import { TopSec } from '../top-sec/TopSec';
+import { BottomSec } from '../bottom-sec/BottomSec';
 
 type Props = {
   e: React.FormEvent<HTMLFormElement>,
@@ -19,7 +21,8 @@ type Props = {
 export const Login = () => {
   const { 
     showCreateAcc, endPreview, loading, waitingServer, setWaitingServer, 
-    errMsg, setErrMsg, setLoading, setShowCreateAcc
+    errMsg, setErrMsg, setLoading, setShowCreateAcc, succesAssign, 
+    setSuccessAssign
   } = useContext(ContextMaster);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -33,7 +36,10 @@ export const Login = () => {
     setLoading(true);
     try{
       if(showCreateAcc){
-        await createUser({email, password});
+        await createUser({
+          body: {email, password},
+          setShowModal: setSuccessAssign,
+        });
         setShowCreateAcc(false);
         return;
       }
@@ -41,8 +47,12 @@ export const Login = () => {
       router.replace('/');
       return;
     } 
-    catch(e){e instanceof Error && setErrMsg(e.message)} 
-    finally{setLoading(false)}
+    catch(e){
+      e instanceof Error && setErrMsg(e.message);
+    } 
+    finally{
+      setLoading(false);
+    }
   };
 
   const formBlock = () => <>
@@ -61,18 +71,21 @@ export const Login = () => {
   </>
 
   return(
-    <section className={styles.loginSection}>
+    <div className={styles.loginContainer}>
+      <TopSec/>
       {endPreview ? 
-        <div className={styles.loginCentralizedBlock}>
+        <section className={styles.loginCentralizedBlock}>
           <ButtonBlock />
+          {succesAssign && !errMsg && <SuccessAssign/>}
+          {!loading && formBlock()}
           {loading && !showCreateAcc && formBlock()}
           {!errMsg && loading && showCreateAcc && msgWaitBlock()}
-          {!errMsg && loading && !showCreateAcc && <Spinner/>}
-          {!loading && formBlock()}
+          {!errMsg && loading && !showCreateAcc && <Spinner login={true}/>}
           {errMsg && <ErrMsg errMsg={errMsg}/>}
-        </div> 
+        </section> 
         : 
         <>{waitingServer ? waitServerBlock() : <WelcomeLogin/>}</>}
-    </section>
+      <BottomSec/>
+    </div>
   );
 };

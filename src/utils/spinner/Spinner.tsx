@@ -2,9 +2,13 @@
 'use client';
 import styles from './Spinner.module.css';
 
-export const Spinner = () => 
+type Props = {
+  login: boolean,
+}
+
+export const Spinner = ({ login }: Props) => 
   <span
-    className={styles.spinner}
+    className={`${styles.spinner} ${login && styles.spinnerLogin}`}
     role="status"
     aria-label={'Carregando…'}
     aria-live="polite"

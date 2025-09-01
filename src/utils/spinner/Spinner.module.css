@@ -11,15 +11,20 @@
   box-sizing: border-box;
 }
 
+.spinnerLogin{
+  position: absolute;
+  margin-top: 11rem;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-@media screen and (max-width: 600px){
-  .spinner{
-    width: 1.5rem;
-    height: 1.5rem;
-  }
+@media screen and (max-width: 290px){
+  .spinnerLogin{
+  position: absolute;
+  margin-top: 13rem;
+}
 }

@@ -6,11 +6,11 @@ import styles from './Login.module.css';
 export const msgWaitBlock = () =>
   <div className={styles.wrapMsgAndSpinner}>
     <p>Aguarde um momento enquanto o processo é finalizado.</p>
-    <Spinner/>  
+    <Spinner login={false}/>  
   </div>
 
 export const waitServerBlock = () =>
   <div className={styles.wrapMsgAndSpinner}>
     <p>{msgInitServer}</p>
-    <Spinner/>
+    <Spinner login={false}/>
   </div> 
