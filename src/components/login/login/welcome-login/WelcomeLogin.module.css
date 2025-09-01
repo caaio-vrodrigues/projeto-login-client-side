@@ -2,13 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid var(--colorPrimary);
   color: var(--colorPrimary);
-  max-width: 24rem;
+  background-color: rgba(243, 250, 255, 0.914);
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0 1rem;
 }
 
 .wrapMsgReady p{
   text-align: justify;
   hyphens: auto;
+  font-size: var(--fontSizeText);
+  letter-spacing: var(--letterSpacingText);
 }
 
 @media screen and (max-width: 250px){

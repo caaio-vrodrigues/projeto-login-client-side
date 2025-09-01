@@ -11,6 +11,7 @@ export const TopSec = () => {
   return(
     <section className={`${styles.secTop}`}>
       <div>
+        <span className={styles.spanNone}>Sistema desenvolvido por Caio Vinicius Rodrigues</span>
         <div className={`${styles.containerWrapDeveloper}`}>
           <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperFirst}`}>
             <span>Desenvolvido por Caio Vinicius Rodrigues.</span>
@@ -33,7 +34,7 @@ export const TopSec = () => {
           <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperLast}`}>
             <span>Layout desenvolvido de forma pura.</span>
             <div className={styles.wrapIcon}>
-              <FontAwesomeIcon icon={faHtml5}/>
+              <FontAwesomeIcon icon={faHtml5} className={styles.iconHtml}/>
               <FontAwesomeIcon icon={faCss3}/>
             </div>
           </div>

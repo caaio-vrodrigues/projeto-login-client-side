@@ -1,3 +1,7 @@
+.spanNone{
+  display: none;
+}
+
 .secTop{
   width: 100%;
   height: 100%;
@@ -13,7 +17,6 @@
   align-items: center;
   width: 100%;
   height: 8rem;
-  background: linear-gradient(to top, rgb(221, 222, 223), rgba(221, 222, 223, 0));;
   border-radius: 5px;
 }
 
@@ -22,7 +25,6 @@
   flex-direction: column;
   width: 25%;
   height: fit-content;
-  border-right: 1px solid var(--purpleBlue);
   padding: .5rem;
 }
 
@@ -37,13 +39,12 @@
 .wrapDeveloper span{
   hyphens: auto;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
+  min-height: 3rem;
   width: fit-content;
   margin: auto;
-  margin-bottom: .8rem;
   padding: .3rem;
   border-radius: 10px;
-  background-color: rgba(221, 222, 223, 0.852);
 }
 
 .wrapIcon{
@@ -83,44 +84,60 @@
   height: 20px;
 }
 
-@media screen and (max-width: 750px){
-  .wrapDeveloper span{
-    height: 3rem;
-    text-align: justify;
-  }
-
+@media screen and (max-width: 800px){
   .containerWrapDeveloper{
-    height: 6.2rem;
+    height: fit-content;
   }
-}
 
-@media screen and (max-width: 650px){
   .wrapDeveloper span{
-    height: 3.2rem;
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 525px){
-  .wrapDeveloper span{
-    height: 4rem;
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 440px){
-  .wrapDeveloper{
     display: none;
   }
 
-  .wrapDeveloperFirst{
+  .spanNone{
     display: flex;
-    width: 100%;
-    border-right: none;
-  }
-
-  .wrapDeveloperFirst span{
-    height: fit-content;
+    justify-content: center;
+    margin-bottom: 1rem;
+    hyphens: auto;
     text-align: center;
   }
 }
+
+@media screen and (max-width: 750px){
+  .wrapDeveloper svg{
+    width: 22px;
+    height: 22px;
+  }
+
+  .wrapDeveloperFirst{
+    font-size: 11px;
+  }
+
+  .wrapDeveloperFirst svg{
+    width: 13px;
+  }
+
+  .wrapDeveloperLast svg{
+    width: 15px;
+  }
+
+  .wrapIcon{
+    width: 3.5rem;
+    height: 2.5rem;
+  }
+
+  .iconHtml{
+    margin-right: .1rem;
+  }
+}
+
+@media screen and (max-width: 285px){
+  .containerWrapDeveloper{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .wrapDeveloper{
+    width: 4rem;
+  }
+}
+

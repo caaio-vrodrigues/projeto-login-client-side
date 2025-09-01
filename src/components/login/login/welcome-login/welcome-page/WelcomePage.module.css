@@ -7,8 +7,8 @@
   background-color: rgba(243, 250, 255, 0.914);
   padding: 1rem;
   border-radius: 5px;
-  min-height: 15rem;
   margin: 0 1rem;
+  font-size: var(--fontSizeText);
 }
 
 .paragraphBlock{

@@ -38,16 +38,25 @@
   color: var(--colorPrimary);
   max-width: 24rem;
   letter-spacing: var(--letterSpacingText);
+  font-size: var(--fontSizeText);
 }
 
 .wrapMsgAndSpinner p{
   hyphens: auto;
+  background-color: rgba(221, 222, 223, 0.852);
+  border: 1px solid var(--colorPrimary);
+  color: var(--colorPrimary);
+  background-color: rgba(243, 250, 255, 0.914);
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0 1rem;
 }
 
 @media screen and (max-width: 600px){
   .loginTitle h1{
     font-size: 18px;
   }
+  
 }
 
 @media screen and (max-width: 410px){
@@ -95,3 +104,10 @@
     height: 13rem;
   }
 }
+
+@media screen and (max-width: 250px){
+  .loginContainer{
+    height: auto;
+  }
+}
+
