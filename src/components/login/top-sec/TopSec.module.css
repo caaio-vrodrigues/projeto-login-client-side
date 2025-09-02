@@ -1,13 +1,15 @@
 .spanNone{
   display: none;
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .secTop{
   width: 100%;
   height: 100%;
-  font-family: "Quicksand", sans-serif;
   color: var(--purpleBlue);
-  font-weight: 700;
+  font-size: 18px;
 }
 
 .wrapTopElements{
@@ -16,7 +18,7 @@
 
 .containerWrapDeveloper{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 8rem;
@@ -26,12 +28,19 @@
 .wrapDeveloper{
   display: flex;
   flex-direction: column;
-  width: 23%;
+  width: 18%;
+  min-height: 7rem;
   height: fit-content;
 }
 
+.wrapDeveloper svg{
+    width: 22px;
+    height: 22px;
+  }
+
 .wrapDeveloperLast{
   border-right: none;
+  margin-right: .5rem;
 }
 
 .wrapDeveloper{
@@ -39,23 +48,23 @@
 }
 
 .wrapDeveloper span{
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
   hyphens: auto;
   text-align: center;
-  font-size: 14px;
-  min-height: 3rem;
+  font-size: 15px;
+  min-height: 4.5rem;
   width: fit-content;
   margin: auto;
   padding: .3rem;
   border-radius: 10px;
+  letter-spacing: var(--letterSpacingText);
 }
 
 .wrapIcon{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 3rem;
-  width: 4.3rem;
   border: 1px solid var(--purpleBlue);
   background-color: var(--purpleBlue);
   border-top-left-radius: 50%;
@@ -64,6 +73,8 @@
   border-bottom-right-radius: 50%;
   margin: auto;
   color: white;
+  width: 3.5rem;
+  height: 2.5rem;
 }
 
 .wrapIcon svg{
@@ -72,23 +83,38 @@
 }
 
 .wrapDeveloperFirst{
-  font-size: 13px;
+  margin-left: .5rem;
+  font-size: 11px;
 }
 
 .wrapDeveloperFirst svg{
   width: 17px;
   height: 17px;
   margin-right: .2rem;
+  width: 13px;
 }
 
 .wrapDeveloperLast svg{
-  width: 20px;
   height: 20px;
+  width: 15px;
 }
 
-@media screen and (max-width: 800px){
+.iconHtml{
+  margin-right: .1rem;
+}
+
+@media screen and (max-width: 855px){
   .containerWrapDeveloper{
     height: fit-content;
+    justify-content: center;
+  }
+
+  .wrapDeveloper{
+    width: 12%;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    width: auto;
+    min-height: inherit;
   }
 
   .wrapDeveloper span{
@@ -107,49 +133,7 @@
   }
 }
 
-@media screen and (max-width: 750px){
-  .wrapDeveloper svg{
-    width: 22px;
-    height: 22px;
-  }
-
-  .wrapDeveloperFirst{
-    font-size: 11px;
-  }
-
-  .wrapDeveloperFirst svg{
-    width: 13px;
-  }
-
-  .wrapDeveloperLast svg{
-    width: 15px;
-  }
-
-  .wrapIcon{
-    width: 3.5rem;
-    height: 2.5rem;
-  }
-
-  .iconHtml{
-    margin-right: .1rem;
-  }
-}
-
 @media screen and (max-width: 400px){
-  .spanNone{
-    font-size: 15px;
-  }
-
-  .wrapIcon {
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    color: var(--purpleBlue);
-  }
-
-  .wrapDeveloper{
-    width: auto;
-  }
-
   .wrapIcon svg{
     color: var(--purpleBlue);
   }
@@ -168,6 +152,12 @@
     height: 1.3rem;
     width: 1.3rem;
   }
+
+  .wrapIcon {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: var(--purpleBlue);
+  }
 }
 
 @media screen and (max-width: 285px){
@@ -177,7 +167,7 @@
   }
 }
 
-@media screen and (max-width: 168px){
+@media screen and (max-width: 220px){
   .wrapIcon{
     width: auto;
   }
@@ -186,6 +176,10 @@
     height: 1.4rem;
     width: 1.4rem;
     padding: .2rem;
+  }
+
+  .wrapDeveloper{
+    margin: 0;
   }
 
   .wrapDeveloperFirst{

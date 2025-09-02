@@ -14,24 +14,24 @@ export const TopSec = () => {
         <span className={styles.spanNone}>Caio V. Rodrigues Systems</span>
         <div className={`${styles.containerWrapDeveloper}`}>
           <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperFirst}`}>
-            <span>Caio V. Rodrigues Systems</span>
+            <span>Developed by Caio V. Rodrigues Systems</span>
             <div className={styles.wrapIcon}>
               <FontAwesomeIcon icon={faCopyright}/> 2025
             </div>
           </div>
-          <div className={styles.wrapDeveloper}>
+          <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperBlue}`}>
             <span>Frontend criado com React-js + Next-js</span>
             <div className={styles.wrapIcon}>
               <FontAwesomeIcon icon={faReact}/>
             </div>
           </div>
-          <div className={styles.wrapDeveloper}>
+          <div className={`${styles.wrapDeveloper}`}>
             <span>Backend programado com Java + Springboot</span>
             <div className={styles.wrapIcon}>
               <FontAwesomeIcon icon={faJava}/>
             </div>
           </div>
-          <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperLast}`}>
+          <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperLast} ${styles.wrapDeveloperBlue}`}>
             <span>Layout desenvolvido de forma pura.</span>
             <div className={styles.wrapIcon}>
               <FontAwesomeIcon icon={faHtml5} className={styles.iconHtml}/>
