@@ -8,11 +8,12 @@
 
 .buttonBlock span{
   font-size: 15px;
-  color: var(--colorPrimaryHover);
+  color: var(--purpleBlue);
   max-width: 24rem;
   hyphens: auto;
   text-align: end;
   letter-spacing: .8px;
+  line-height: var(--lineHeight);
 }
 
 .buttonBlock button{
@@ -24,6 +25,8 @@
   background-color: rgba(0, 0, 0, 0);
   border: none;
   transition: var(--transition);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .buttonBlock button:hover{

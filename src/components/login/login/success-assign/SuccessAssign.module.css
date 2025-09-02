@@ -21,6 +21,7 @@
   color: var(--colorPrimary);
   padding: 5px;
   border-radius: 3px;
+  line-height: var(--lineHeight);
 }
 
 .wrapIcon{

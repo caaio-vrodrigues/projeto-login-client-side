@@ -7,7 +7,7 @@ export const cardInfos = [
   },
   {
     id: 1,
-    text: "HTML; CSS; Javascrip; React-js; Next-js; SPA; Responsividade; CRUD; Java; Springboot; API-REST; DTO; DB-H2; Client Side UI/UX; Vercel; Render; Git; SQL",
+    text: "HTML; CSS; Javascrip; React-js; Next-js; SPA; Responsividade; CRUD; Java; Springboot; API-REST; DTO; DB-H2; Client Side UI/UX; Vercel; Render; Git; SQL.",
     link: null,
     linkTxt: null,
   },

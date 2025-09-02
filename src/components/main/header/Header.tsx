@@ -18,13 +18,13 @@ export const Header = () => {
         <FontAwesomeIcon icon={faAppleAlt}/>
       </div>
       <div className={`${styles.centerBlock} ${styles.block}`}>
-        <h1>System</h1>
+        <h1>Caio V. Rodrigues Systems</h1>
       </div>
       <div className={`${styles.rightBlock} ${styles.block}`} >
-        <FontAwesomeIcon 
-          className={`${styles.closeIcon}`} 
-          onClick={handleLogout} 
+        <span onClick={handleLogout}>
+          <FontAwesomeIcon 
           icon={faClose}/>
+        </span>
       </div>
     </header>
   );

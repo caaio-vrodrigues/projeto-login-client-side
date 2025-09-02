@@ -8,7 +8,7 @@
   font-family: "Quicksand", sans-serif;
   font-size: 15px;
   font-weight: 700;
-  padding: 1rem 1rem;
+  padding: 2rem 2rem;
 }
 
 .linkBgImg{
@@ -23,6 +23,7 @@
   margin: auto;
   margin-bottom: 3rem;
   border-bottom: 2px solid var(--purpleBlue);
+  padding-bottom: .5rem;
 }
 
 .wrapIcons svg{

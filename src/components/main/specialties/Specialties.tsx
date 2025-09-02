@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJava, faReact } from '@fortawesome/free-brands-svg-icons';
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faLeftRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './Specialties.module.css';
 
 export const Specialties = () => {
@@ -16,8 +16,7 @@ export const Specialties = () => {
       </div>
       <div className={`${styles.blockSpecialt} ${styles.blockSpecialtCenter}`}>
         <button onClick={()=>setIsJavaRight(!isJavaRight)}>
-          <FontAwesomeIcon icon={faArrowRight}/>
-          <FontAwesomeIcon icon={faArrowLeft}/>
+          <FontAwesomeIcon icon={faLeftRight}/>
         </button>
       </div>
       <div className={`${styles.blockSpecialt} ${styles.blockSpecialtTool}`}>

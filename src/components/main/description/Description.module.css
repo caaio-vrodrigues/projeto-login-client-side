@@ -6,11 +6,18 @@
 .secDescription h1{
   font-size: var(--fontSizePrimary);
   margin-bottom: 1rem;
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
 }
 
 .secDescription h2{
   font-size: var(--fontSizePrimary);
   margin-bottom: 1rem;
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
+  border-bottom: 1px solid var(--colorPrimary);
+  padding-bottom: .3rem;
+  width: fit-content;
 }
 
 .cardsContainer{
@@ -19,6 +26,7 @@
 
 .wrapCards{
   width: 50%;
+  letter-spacing: var(--letterSpacingText);
 }
 
 .leftWrapCards{
@@ -38,6 +46,7 @@
 .rightWrapCard p{
   text-align: justify;
   line-height: var(--lineHeight);
+  font-size: var(--fontSizeText);
 }
 
 @media screen and (max-width: 430px){

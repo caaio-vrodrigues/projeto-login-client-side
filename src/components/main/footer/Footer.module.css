@@ -8,6 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Goldman", sans-serif;
+ 
 }
 
 .footTitle{
@@ -16,6 +18,7 @@
 
 .footTitle h2{
   font-size: var(--fontSizePrimary);
+  font-weight: 400;
 }
 
 .copy{
@@ -25,13 +28,12 @@
 }
 
 .copy p{
-  font-weight: bolder;
   font-size: var(--fontSizePrimary);
 }
 
 .copy svg{
-  width: var(--sizeIcon);
-  height: var(--sizeIcon);
+  width: 1.1rem;
+  height: 1.1rem;
   margin-left: 5px;
 }
 

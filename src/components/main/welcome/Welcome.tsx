@@ -3,7 +3,7 @@ import styles from './Welcome.module.css';
 export const Welcome = () => 
   <section>
     <div className={styles.welcome}>
-      <span>Olá.</span>
+      <span className={styles.spanOla}>Olá.</span>
       <span>Seja muito bem vindo!</span>
     </div>
     <div className={styles.videoBlock}>

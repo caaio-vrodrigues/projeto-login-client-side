@@ -15,14 +15,14 @@ export const contacts = [
     icon: faLinkedin,
   },
   {
-    id: 2,
-    link: 'https://wa.me/+5519997866670?text=wpp-caio',
-    icon: faWhatsapp,
-  },
-  {
     id: 3,
     link: 'mailto:caio.vr12@gmail.com',
     icon: faEnvelope,
+  },
+  {
+    id: 2,
+    link: 'https://wa.me/+5519997866670?text=wpp-caio',
+    icon: faWhatsapp,
   },
 ];
 

@@ -26,8 +26,8 @@ body{
   --paddingMain: 0rem 4rem 0rem 4rem;
 
   /* font */
-  --fontSizePrimary: 16px;
-  --fontSizeText: 15px;
+  --fontSizePrimary: 17px;
+  --fontSizeText: 14px;
   --colorText: rgb(48, 50, 52);
   --colorText2: rgb(230, 233, 236);
   --colorPrimary: rgb(14, 91, 180);

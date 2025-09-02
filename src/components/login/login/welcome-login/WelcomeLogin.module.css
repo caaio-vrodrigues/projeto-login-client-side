@@ -15,6 +15,7 @@
   hyphens: auto;
   font-size: var(--fontSizeText);
   letter-spacing: var(--letterSpacingText);
+  line-height: var(--lineHeight);
 }
 
 @media screen and (max-width: 250px){

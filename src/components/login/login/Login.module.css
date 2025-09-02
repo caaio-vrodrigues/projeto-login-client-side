@@ -50,6 +50,7 @@
   padding: 1rem;
   border-radius: 5px;
   margin: 0 1rem;
+  line-height: var(--lineHeight);
 }
 
 @media screen and (max-width: 600px){
