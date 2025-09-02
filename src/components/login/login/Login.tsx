@@ -75,13 +75,14 @@ export const Login = () => {
       <TopSec/>
       {endPreview ? 
         <section className={styles.loginCentralizedBlock}>
+          {errMsg && <ErrMsg errMsg={errMsg}/>}
           <ButtonBlock />
           {succesAssign && !errMsg && <SuccessAssign/>}
           {!loading && formBlock()}
           {loading && !showCreateAcc && formBlock()}
           {!errMsg && loading && showCreateAcc && msgWaitBlock()}
           {!errMsg && loading && !showCreateAcc && <Spinner login={true}/>}
-          {errMsg && <ErrMsg errMsg={errMsg}/>}
+          
         </section> 
         : 
         <>{waitingServer ? waitServerBlock() : <WelcomeLogin/>}</>}

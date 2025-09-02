@@ -11,10 +11,10 @@ export const TopSec = () => {
   return(
     <section className={`${styles.secTop}`}>
       <div className={styles.wrapTopElements}>
-        <span className={styles.spanNone}>Sistema desenvolvido por Caio Vinicius Rodrigues</span>
+        <span className={styles.spanNone}>Caio V. Rodrigues Systems</span>
         <div className={`${styles.containerWrapDeveloper}`}>
           <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperFirst}`}>
-            <span>Desenvolvido por Caio Vinicius Rodrigues.</span>
+            <span>Caio V. Rodrigues Systems</span>
             <div className={styles.wrapIcon}>
               <FontAwesomeIcon icon={faCopyright}/> 2025
             </div>

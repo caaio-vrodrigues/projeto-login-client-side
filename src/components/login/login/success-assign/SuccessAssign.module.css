@@ -3,20 +3,22 @@
   flex-direction: column;
   z-index: 99;
   position: absolute;
-  background-color: rgba(182, 205, 224, 0.855);
   width: 40%;
   min-height: 10rem;
   padding: 1rem;
-  border-radius: 5px;
   min-width: 244px;
   max-width: 360px;
+  border: 1px solid var(--colorPrimary);
+  background-color: rgba(243, 250, 255, 0.914);
+  border-radius: 5px;
+  font-size: var(--fontSizeText);
 }
 
 .wrapSuccessMsg span{
   hyphens: auto;
   letter-spacing: .3px;
   font-weight: 500;
-  color: blue;
+  color: var(--colorPrimary);
   padding: 5px;
   border-radius: 3px;
 }
@@ -36,16 +38,23 @@
 }
 
 .wrapIcon svg{
-  height: 2rem;
+  height: 1.5rem;
   width: 1.5rem;
   cursor: pointer;
-  color: blue;
+  color: rgba(4, 195, 125, 0.664);
   transition: var(--transition);
+  margin: 1rem;
+  background-color: white;
+  padding: .5rem;
+  border-radius: 50% 50%;
+  border: 1px solid rgba(4, 195, 125, 0.664);
 }
 
 .wrapSuccessMsg svg:hover{
   transition: var(--transition);
-  color: rgba(70, 70, 230, 0.651);
+  color: white;
+  border: 1px solid white;
+  background-color: rgba(4, 195, 125, 0.664);
 }
 
 @media screen and (max-width: 260px){

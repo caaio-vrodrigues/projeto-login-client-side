@@ -1,4 +1,4 @@
-import { LoginRequest, TokenResponse, UserDto, createUserProps } from './typesAuth';
+import { LoginRequest, TokenResponse, createUserProps } from './typesAuth';
 
 const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
 const TOKEN_KEY = 'auth_token';

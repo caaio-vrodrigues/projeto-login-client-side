@@ -103,7 +103,7 @@
     text-align: center;
     padding: .5rem;
     padding-top: 1.5rem;
-    padding-bottom: 0;
+    padding-bottom: .5rem;
   }
 }
 
@@ -137,7 +137,7 @@
 
 @media screen and (max-width: 400px){
   .spanNone{
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .wrapIcon {
@@ -153,6 +153,21 @@
   .wrapIcon svg{
     color: var(--purpleBlue);
   }
+
+  .wrapIcon svg{
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .wrapDeveloperFirst svg{
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+
+  .wrapDeveloperLast svg{
+    height: 1.3rem;
+    width: 1.3rem;
+  }
 }
 
 @media screen and (max-width: 285px){
@@ -162,10 +177,23 @@
   }
 }
 
-@media screen and (max-width: 255px){
-  .spanNone{
-    padding: .5rem;
-    margin-bottom: 0;
+@media screen and (max-width: 168px){
+  .wrapIcon{
+    width: auto;
+  }
+
+  .wrapIcon svg{
+    height: 1.4rem;
+    width: 1.4rem;
+    padding: .2rem;
+  }
+
+  .wrapDeveloperFirst{
+    width: 100%;
+  }
+
+  .wrapDeveloperFirst svg{
+    width: 1rem;
   }
 }
 

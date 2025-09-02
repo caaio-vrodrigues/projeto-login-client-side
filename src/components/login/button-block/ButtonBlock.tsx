@@ -1,6 +1,6 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { ContextMaster } from '@/context/ContextProvider';
 import styles from '@/components/login/button-block/ButtonBlock.module.css';
@@ -15,7 +15,7 @@ export const ButtonBlock = () => {
         setShowCreateAcc(!showCreateAcc);
         setErrMsg(null);
       }}>
-        {showCreateAcc ? 'login' : <>
+        {showCreateAcc ? <>login <FontAwesomeIcon icon={faRightToBracket}/></> : <>
           nova conta <FontAwesomeIcon icon={faArrowUpRightFromSquare}/></>}
       </button>
     </div>
