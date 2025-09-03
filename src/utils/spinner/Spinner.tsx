@@ -9,8 +9,8 @@ type Props = {
 export const Spinner = ({ login }: Props) => 
   <span
     className={`${styles.spinner} ${login && styles.spinnerLogin}`}
-    role="status"
+    role='status'
     aria-label={'Carregando…'}
-    aria-live="polite"
+    aria-live='polite'
     title={'Carregando'}
   />

@@ -11,11 +11,6 @@
   box-sizing: border-box;
 }
 
-.spinnerLogin{
-  position: absolute;
-  margin-top: 11rem;
-}
-
 @keyframes spin {
   to {
     transform: rotate(360deg);

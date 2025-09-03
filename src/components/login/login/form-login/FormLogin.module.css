@@ -1,3 +1,14 @@
+.loginTitle{
+  margin-bottom: 1rem;
+}
+
+.loginTitle h1{
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  color: var(--colorPrimary);
+  font-weight: 700;
+}
+
 .formLogin{
   display: flex;
   flex-direction: column;
@@ -81,11 +92,31 @@
   .submitBtn{
     font-size: 11px;
   }
+
+  .loginTitle h1{
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 410px){
+  .loginTitle h1{
+    font-size: 17px;
+  }
 }
 
 @media screen and (max-width: 265px){
   .wrapInput input{
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 250px){
+  .loginTitle h1{
+    margin-bottom: 0;
+  }
+
+  .loginTitle{
+    margin-bottom: .5rem;
   }
 }
 

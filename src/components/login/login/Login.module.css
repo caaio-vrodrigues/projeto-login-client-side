@@ -19,17 +19,6 @@
   margin-bottom: 3rem;
 }
 
-.loginTitle{
-  margin-bottom: 1rem;
-}
-
-.loginTitle h1{
-  font-family: "Quicksand", sans-serif;
-  font-size: 20px;
-  color: var(--colorPrimary);
-  font-weight: 700;
-}
-
 .wrapMsgAndSpinner{
   display: flex;
   flex-direction: column;
@@ -53,20 +42,15 @@
   line-height: var(--lineHeight);
 }
 
-@media screen and (max-width: 600px){
-  .loginTitle h1{
-    font-size: 18px;
-  }
-  
+.spinnerLogin{
+  background-color: aqua;
 }
+
+
 
 @media screen and (max-width: 410px){
   .loginCentralizedBlock{
     min-width: 15rem;
-  }
-
-  .loginTitle h1{
-    font-size: 17px;
   }
 }
 
@@ -89,14 +73,6 @@
   .wrapMsg p{
     padding: .3rem;
     font-size: 14px;
-  }
-
-  .loginTitle h1{
-    margin-bottom: 0;
-  }
-
-  .loginTitle{
-    margin-bottom: .5rem;
   }
 }
 

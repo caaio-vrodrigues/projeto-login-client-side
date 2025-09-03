@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJava, faReact } from '@fortawesome/free-brands-svg-icons';
-import { faArrowRight, faLeftRight } from '@fortawesome/free-solid-svg-icons';
+import { faLeftRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './Specialties.module.css';
 
 export const Specialties = () => {

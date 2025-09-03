@@ -4,21 +4,26 @@ import { faHouseUser, faShare } from '@fortawesome/free-solid-svg-icons';
 import styles from './FormLogin.module.css';
 
 type Props = {
+  formValues: {
+    email: string;
+    setEmail: Dispatch<SetStateAction<string>>;
+    password: string;
+    setPassword: Dispatch<SetStateAction<string>>;
+    loading: boolean;
+    showCreateAcc: boolean;
+  }
   handleSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void>;
-  email: string;
-  setEmail: Dispatch<SetStateAction<string>>;
-  password: string;
-  setPassword: Dispatch<SetStateAction<string>>;
-  loading: boolean;
-  showCreateAcc: boolean;
 }
 
-export const FormLogin = (props: Props) => {
+export const FormLogin = ({ formValues, handleSubmit}: Props) => {
   const {
-    handleSubmit, email, setEmail, password, setPassword, loading, showCreateAcc 
-  } = props;
+    email, setEmail, password, setPassword, loading, showCreateAcc 
+  } = formValues;
 
-  return (
+  return <>
+    <div className={styles.loginTitle}>
+      <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
+    </div>
     <form className={styles.formLogin} onSubmit={handleSubmit}>
       <div className={`${styles.wrapInput} ${styles.wrapInputEmail}`}>
         <input
@@ -53,5 +58,5 @@ export const FormLogin = (props: Props) => {
         </button>
       </div>
     </form>
-  );
+  </>
 }

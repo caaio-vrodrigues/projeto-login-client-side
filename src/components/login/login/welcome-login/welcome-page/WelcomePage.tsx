@@ -1,9 +1,9 @@
-import { ContextMaster } from "@/context/ContextProvider";
-import { useContext, useState, useEffect } from "react";
+import { ContextMaster } from '@/context/ContextProvider';
+import { useContext, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './WelcomePage.module.css';
-import Link from "next/link";
+import Link from 'next/link';
 
 type Props = {
   strs: {
@@ -16,16 +16,10 @@ type Props = {
 export const WelcomePage = ({ strs, isLastPage }: Props) => {
   const { currentPage, setCurrentPage  } = useContext(ContextMaster);
   const [showNext, setShowNext] = useState(false);
+
   let time = currentPage == 0 ? 3000 : 6000;
   if(isLastPage) time = 1000;
   
-  const buttonNextPage = () => 
-    <FontAwesomeIcon 
-      icon={faAnglesRight}
-      className={styles.buttonNextPage}
-      onClick={()=>setCurrentPage(currentPage + 1)}
-    />
-
   useEffect(() => { setTimeout(() => setShowNext(true), time) }, []);
   
   return(
@@ -35,14 +29,18 @@ export const WelcomePage = ({ strs, isLastPage }: Props) => {
           p.id == 100 ? 
             <div key={p.id} className={`${styles.wrapLink}`}>
               <Link href={p.str} target='_blank'>
-                {"certificado-caio-oracle-java-se8"}
+                {'certificado-caio-oracle-java-se8'}
               </Link>
             </div>
-            :
-            <p key={p.id}>{p.str}</p>
+            : <p key={p.id}>{p.str}</p>
         )}
       </div>
-      {showNext && buttonNextPage()}
+      {showNext && 
+        <FontAwesomeIcon 
+          icon={faAnglesRight}
+          className={styles.buttonNextPage}
+          onClick={()=>setCurrentPage(currentPage + 1)}
+        />}
     </div> 
   );
 }

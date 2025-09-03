@@ -12,12 +12,12 @@
   font-size: 18px;
 }
 
-.wrapTopElements{
+.containerTopElements{
   background: linear-gradient(to top, rgba(162, 213, 250, 0), rgb(213, 213, 213));
   padding-top: 1rem;
 }
 
-.containerWrapDeveloper{
+.wrapTopElements{
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -26,7 +26,7 @@
   border-radius: 5px;
 }
 
-.wrapDeveloper{
+.wrapSpanIcon{
   display: flex;
   flex-direction: column;
   width: 18%;
@@ -34,21 +34,21 @@
   height: fit-content;
 }
 
-.wrapDeveloper svg{
+.wrapSpanIcon svg{
     width: 22px;
     height: 22px;
   }
 
-.wrapDeveloperLast{
+.wrapSpanIconLast{
   border-right: none;
   margin-right: .5rem;
 }
 
-.wrapDeveloper{
+.wrapSpanIcon{
   hyphens: auto;
 }
 
-.wrapDeveloper span{
+.wrapSpanIcon span{
   font-family: "Goldman", sans-serif;
   font-weight: 400;
   hyphens: auto;
@@ -83,20 +83,20 @@
   height: 30px;
 }
 
-.wrapDeveloperFirst{
+.wrapSpanIconFirst{
   margin-left: .5rem;
   font-size: 11px;
   font-weight: 500;
 }
 
-.wrapDeveloperFirst svg{
+.wrapSpanIconFirst svg{
   width: 17px;
   height: 17px;
   margin-right: .2rem;
   width: 13px;
 }
 
-.wrapDeveloperLast svg{
+.wrapSpanIconLast svg{
   height: 20px;
   width: 15px;
 }
@@ -106,12 +106,12 @@
 }
 
 @media screen and (max-width: 855px){
-  .containerWrapDeveloper{
+  .wrapTopElements{
     height: fit-content;
     justify-content: center;
   }
 
-  .wrapDeveloper{
+  .wrapSpanIcon{
     width: 12%;
     margin-left: .5rem;
     margin-right: .5rem;
@@ -119,7 +119,7 @@
     min-height: inherit;
   }
 
-  .wrapDeveloper span{
+  .wrapSpanIcon span{
     display: none;
   }
 
@@ -145,12 +145,12 @@
     width: 2rem;
   }
 
-  .wrapDeveloperFirst svg{
+  .wrapSpanIconFirst svg{
     height: 1.1rem;
     width: 1.1rem;
   }
 
-  .wrapDeveloperLast svg{
+  .wrapSpanIconLast svg{
     height: 1.3rem;
     width: 1.3rem;
   }
@@ -163,7 +163,7 @@
 }
 
 @media screen and (max-width: 285px){
-  .containerWrapDeveloper{
+  .wrapTopElements{
     display: flex;
     flex-wrap: wrap;
   }
@@ -180,15 +180,15 @@
     padding: .2rem;
   }
 
-  .wrapDeveloper{
+  .wrapSpanIcon{
     margin: 0;
   }
 
-  .wrapDeveloperFirst{
+  .wrapSpanIconFirst{
     width: 100%;
   }
 
-  .wrapDeveloperFirst svg{
+  .wrapSpanIconFirst svg{
     width: 1rem;
     margin: 0;
   }

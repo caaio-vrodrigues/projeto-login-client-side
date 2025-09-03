@@ -9,10 +9,10 @@ import { WelcomeLogin } from './welcome-login/WelcomeLogin';
 import { Spinner } from '@/utils/spinner/Spinner';
 import { msgWaitBlock, waitServerBlock } from './LoginBlocks';
 import { ContextMaster } from '@/context/ContextProvider';
-import styles from '@/components/login/login/Login.module.css';
 import { SuccessAssign } from './success-assign/SuccessAssign';
 import { TopSec } from '../top-sec/TopSec';
 import { BottomSec } from '../bottom-sec/BottomSec';
+import styles from '@/components/login/login/Login.module.css';
 
 type Props = {
   e: React.FormEvent<HTMLFormElement>,
@@ -55,20 +55,9 @@ export const Login = () => {
     }
   };
 
-  const formBlock = () => <>
-    <div className={styles.loginTitle}>
-      <h1>{showCreateAcc ? 'Nova Conta' : 'Login'}</h1>
-    </div>
-    <FormLogin 
-      email={email} 
-      setEmail={setEmail} 
-      password={password} 
-      setPassword={setPassword} 
-      loading={loading}
-      handleSubmit={(e) => handleSubmit({ e })}
-      showCreateAcc={showCreateAcc} 
-    />
-  </>
+  const formProps = { 
+    email, setEmail, password, setPassword, loading, showCreateAcc 
+  };
 
   return(
     <div className={styles.loginContainer}>
@@ -78,11 +67,13 @@ export const Login = () => {
           {errMsg && <ErrMsg errMsg={errMsg}/>}
           <ButtonBlock />
           {succesAssign && !errMsg && <SuccessAssign/>}
-          {!loading && formBlock()}
-          {loading && !showCreateAcc && formBlock()}
+          {!loading && 
+            <FormLogin 
+              formValues={{...formProps}} 
+              handleSubmit={(e) => handleSubmit({ e })}
+            />}
           {!errMsg && loading && showCreateAcc && msgWaitBlock()}
           {!errMsg && loading && !showCreateAcc && <Spinner login={true}/>}
-          
         </section> 
         : 
         <>{waitingServer ? waitServerBlock() : <WelcomeLogin/>}</>}

@@ -1,45 +1,16 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopyright } from '@fortawesome/free-solid-svg-icons';
-
-import { 
-  faJava, faReact, faHtml5, faCss3 
-} from '@fortawesome/free-brands-svg-icons';
-
+import { LastElement } from './last-element/LastElement';
+import { CenterElements } from './center-elements/CenterElements';
+import { FirstElement } from './first-element/FirstElement';
 import styles from './TopSec.module.css';
 
-export const TopSec = () => {
-  return(
-    <section className={`${styles.secTop}`}>
-      <div className={styles.wrapTopElements}>
-        <span className={styles.spanNone}>Caio V. Rodrigues Systems</span>
-        <div className={`${styles.containerWrapDeveloper}`}>
-          <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperFirst}`}>
-            <span>Developed by Caio V. Rodrigues Systems</span>
-            <div className={styles.wrapIcon}>
-              <FontAwesomeIcon icon={faCopyright}/> 2025
-            </div>
-          </div>
-          <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperBlue}`}>
-            <span>Frontend criado com React-js + Next-js</span>
-            <div className={styles.wrapIcon}>
-              <FontAwesomeIcon icon={faReact}/>
-            </div>
-          </div>
-          <div className={`${styles.wrapDeveloper}`}>
-            <span>Backend programado com Java + Springboot</span>
-            <div className={styles.wrapIcon}>
-              <FontAwesomeIcon icon={faJava}/>
-            </div>
-          </div>
-          <div className={`${styles.wrapDeveloper} ${styles.wrapDeveloperLast} ${styles.wrapDeveloperBlue}`}>
-            <span>Layout desenvolvido de forma pura.</span>
-            <div className={styles.wrapIcon}>
-              <FontAwesomeIcon icon={faHtml5} className={styles.iconHtml}/>
-              <FontAwesomeIcon icon={faCss3}/>
-            </div>
-          </div>
-        </div>
+export const TopSec = () => 
+  <section className={`${styles.secTop}`}>
+    <div className={styles.containerTopElements}>
+      <span className={styles.spanNone}>Caio V. Rodrigues Systems</span>
+      <div className={`${styles.wrapTopElements}`}>
+        <FirstElement/>
+        <CenterElements/>
+        <LastElement/>
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>

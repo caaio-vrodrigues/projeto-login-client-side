@@ -21,9 +21,7 @@
   display: flex;
   justify-content: space-between;
   margin: auto;
-  margin-bottom: 3rem;
-  border-bottom: 2px solid var(--purpleBlue);
-  padding-bottom: .5rem;
+  margin-bottom: 2rem;
 }
 
 .wrapIcons svg{
