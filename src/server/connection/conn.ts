@@ -2,6 +2,7 @@ import { LoginRequest, TokenResponse, createUserProps } from './typesAuth';
 
 const BASE_URL = 'https://crud-springboot-e4ao.onrender.com';
 const TOKEN_KEY = 'auth_token';
+export const TOKEN_TIMER = 'token_timer';
 let memoryToken: string | null = null;
 
 const isBrowser = (): boolean => 
@@ -25,6 +26,7 @@ const request = async (body: any, url: string): Promise<Response> => {
 const setToken = (token: string): void => {
   if (isBrowser()) {
     localStorage.setItem(TOKEN_KEY, token);
+    localStorage.setItem(TOKEN_TIMER, Date.now().toString());
   } else {
     memoryToken = token;
   }
@@ -79,6 +81,9 @@ export const loginAcces = async (credentials: LoginRequest): Promise<string> => 
 }
 
 export const logout = (): void => {
-  if (isBrowser()) localStorage.removeItem(TOKEN_KEY);
+  if (isBrowser()) {
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(TOKEN_TIMER);
+  };
   memoryToken = null;
 }

@@ -2,7 +2,7 @@ import { useEffect, useContext } from 'react';
 import { ContextMaster } from '@/context/ContextProvider';
 import { msgEndInteraction } from '@/data/consts';
 import { Spinner } from '@/utils/spinner/Spinner';
-import styles from '../WelcomeLogin.module.css';
+import styles from './EndInteraction.module.css';
 
 export const EndInteraction = () => {
   const { setEndPreview } = useContext(ContextMaster);

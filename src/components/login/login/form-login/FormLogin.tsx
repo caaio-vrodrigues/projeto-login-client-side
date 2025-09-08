@@ -1,9 +1,8 @@
 import { type FormEvent, type Dispatch, type SetStateAction } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseUser, faShare } from '@fortawesome/free-solid-svg-icons';
-import styles from './FormLogin.module.css';
-
 import { BackPresentation } from './back-presentation/BackPresentation';
+import styles from './FormLogin.module.css';
 
 type Props = {
   formValues: {

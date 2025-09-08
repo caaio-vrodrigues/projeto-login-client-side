@@ -13,7 +13,7 @@ export const ButtonBlock = () => {
   return (
     <div className={styles.buttonBlock}>
       {!showCreateAcc && 
-      <span>Já possui cadastro? Crie uma nova conta.</span>}
+      <span>Já possui cadastro? Crie uma nova conta abaixo.</span>}
       <button 
         onClick={()=>{
           setShowCreateAcc(!showCreateAcc);
