@@ -4,7 +4,7 @@
   z-index: 99;
   position: absolute;
   width: 40%;
-  min-height: 10rem;
+  min-height: 14rem;
   padding: 1rem;
   min-width: 244px;
   max-width: 360px;
@@ -16,6 +16,7 @@
 
 .wrapSuccessMsg span{
   hyphens: auto;
+  text-align: justify;
   letter-spacing: .3px;
   font-weight: 500;
   color: var(--colorPrimary);
