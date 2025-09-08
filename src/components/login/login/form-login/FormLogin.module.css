@@ -77,6 +77,33 @@
   margin-right: .15rem;
 }
 
+.presentation{
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  color: var(--colorPrimary);
+}
+
+.presentation span{
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.presentation svg{
+  margin-top: .3rem;
+  color: var(--colorPrimary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.presentation svg:hover{
+  color: var(--colorPrimaryHover);
+  transition: var(--transition);
+}
+
 @media screen and (max-width: 600px){
   .wrapInput input{
     height: 1.5rem;

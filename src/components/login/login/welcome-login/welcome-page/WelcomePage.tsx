@@ -1,7 +1,7 @@
 import { ContextMaster } from '@/context/ContextProvider';
 import { useContext, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './WelcomePage.module.css';
 import Link from 'next/link';
 
@@ -36,11 +36,18 @@ export const WelcomePage = ({ strs, isLastPage }: Props) => {
         )}
       </div>
       {showNext && 
-        <FontAwesomeIcon 
-          icon={faAnglesRight}
-          className={styles.buttonNextPage}
-          onClick={()=>setCurrentPage(currentPage + 1)}
-        />}
+        <div className={styles.wrapButtons}>
+          <FontAwesomeIcon 
+            icon={faAnglesLeft}
+            className={styles.buttonNextPage}
+            onClick={()=>setCurrentPage(currentPage > 0 ? currentPage - 1 : 0)}
+          />
+          <FontAwesomeIcon 
+            icon={faAnglesRight}
+            className={styles.buttonNextPage}
+            onClick={()=>setCurrentPage(currentPage + 1)}
+          />
+        </div>}
     </div> 
   );
 }

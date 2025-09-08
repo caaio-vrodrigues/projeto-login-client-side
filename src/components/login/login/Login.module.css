@@ -42,12 +42,6 @@
   line-height: var(--lineHeight);
 }
 
-.spinnerLogin{
-  background-color: aqua;
-}
-
-
-
 @media screen and (max-width: 410px){
   .loginCentralizedBlock{
     min-width: 15rem;

@@ -7,15 +7,20 @@ let memoryToken: string | null = null;
 const isBrowser = (): boolean => 
   typeof window !== 'undefined' && typeof localStorage !== 'undefined';
 
-const request = async (body: any, url: string): Promise<Response> => 
-  await fetch(`${BASE_URL}/auth/${url}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(body),
-  });
+const request = async (body: any, url: string): Promise<Response> => {
+  try{
+    return await fetch(`${BASE_URL}/auth/${url}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(body),
+    })
+  }catch(err){
+    throw new Error('Falha na conexão.');
+  }
+}
 
 const setToken = (token: string): void => {
   if (isBrowser()) {
