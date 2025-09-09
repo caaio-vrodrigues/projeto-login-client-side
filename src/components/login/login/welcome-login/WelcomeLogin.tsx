@@ -12,7 +12,6 @@ export const WelcomeLogin = () => {
   const { currentPage } = useContext(ContextMaster);
   return <>
     {allPages.map((page, id) => {
-      const lastPage = allPages.length - 1 == id;
       if(currentPage == id){
         return !skipPresentation ? <>
           <button 
@@ -22,7 +21,7 @@ export const WelcomeLogin = () => {
             <span>Pular apresentação </span>
             <FontAwesomeIcon icon={faArrowsTurnRight}/>
           </button>
-          <WelcomePage key={id} strs={page} isLastPage={lastPage}/>
+          <WelcomePage key={id} strs={page}/>
         </> 
         : <EndInteraction/>
       }

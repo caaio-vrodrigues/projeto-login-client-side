@@ -51,7 +51,7 @@ export const Login = () => {
       e instanceof Error && setErrMsg(e.message);
     } 
     finally{
-      setLoading(false);
+     setLoading(false);
     }
   };
 
@@ -75,8 +75,9 @@ export const Login = () => {
           {!errMsg && loading && showCreateAcc && msgWaitBlock()}
           {!errMsg && loading && !showCreateAcc && <Spinner login={true}/>}
         </section> 
-        : 
-        <>{waitingServer ? waitServerBlock() : <WelcomeLogin/>}</>}
+      : <>
+          {waitingServer ? waitServerBlock() : <WelcomeLogin/>}
+        </>}
       <BottomSec/>
     </div>
   );

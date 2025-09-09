@@ -1,2 +1,2 @@
-export const msgEndInteraction = 'Tudo pronto, aguarde um momento enquanto a ativação do servidor é finalizada.';
-export const msgInitServer = 'Aguarde 10 segundos para a ativação do servidor em estado de hibernação.';
+export const msgEndInteraction = 'Tudo pronto, finalizando processo. Aguarde um momento...';
+export const msgInitServer = 'Aguarde um momento...';

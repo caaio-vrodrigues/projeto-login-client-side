@@ -25,13 +25,14 @@
   justify-content: center;
   align-items: center;
   color: var(--colorPrimary);
-  max-width: 24rem;
+  max-width: fit-content;
   letter-spacing: var(--letterSpacingText);
   font-size: var(--fontSizeText);
 }
 
 .wrapMsgAndSpinner p{
   hyphens: auto;
+  text-align: justify;
   background-color: rgba(221, 222, 223, 0.852);
   border: 1px solid var(--colorPrimary);
   color: var(--colorPrimary);

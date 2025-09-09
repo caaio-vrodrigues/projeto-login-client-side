@@ -1,13 +1,15 @@
 .wrapSuccessMsg{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   z-index: 99;
   position: absolute;
-  width: 40%;
+  width: fit-content;
   min-height: 18rem;
   padding: 1rem;
   min-width: 244px;
-  max-width: 360px;
+  margin: 0 1rem;
   border: 1px solid var(--colorPrimary);
   background-color: rgba(243, 250, 255, 0.914);
   border-radius: 5px;

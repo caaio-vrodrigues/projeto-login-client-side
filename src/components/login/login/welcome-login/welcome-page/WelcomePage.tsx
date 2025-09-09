@@ -10,17 +10,10 @@ type Props = {
     id: number,
     str: string,
   }[],
-  isLastPage: boolean,
 };
 
-export const WelcomePage = ({ strs, isLastPage }: Props) => {
+export const WelcomePage = ({ strs }: Props) => {
   const { currentPage, setCurrentPage  } = useContext(ContextMaster);
-  const [showNext, setShowNext] = useState(false);
-
-  let time = currentPage == 0 ? 3000 : 6000;
-  if(isLastPage) time = 1000;
-  
-  useEffect(() => { setTimeout(() => setShowNext(true), time) }, []);
   
   return(
     <div className={styles.wrapParagraphs}>
@@ -35,19 +28,18 @@ export const WelcomePage = ({ strs, isLastPage }: Props) => {
             : <p key={p.id}>{p.str}</p>
         )}
       </div>
-      {showNext && 
-        <div className={styles.wrapButtons}>
-          <FontAwesomeIcon 
-            icon={faAnglesLeft}
-            className={styles.buttonNextPage}
-            onClick={()=>setCurrentPage(currentPage > 0 ? currentPage - 1 : 0)}
-          />
-          <FontAwesomeIcon 
-            icon={faAnglesRight}
-            className={styles.buttonNextPage}
-            onClick={()=>setCurrentPage(currentPage + 1)}
-          />
-        </div>}
+      <div className={styles.wrapButtons}>
+        <FontAwesomeIcon 
+          icon={faAnglesLeft}
+          className={styles.buttonNextPage}
+          onClick={()=>setCurrentPage(currentPage > 0 ? currentPage - 1 : 0)}
+        />
+        <FontAwesomeIcon 
+          icon={faAnglesRight}
+          className={styles.buttonNextPage}
+          onClick={()=>setCurrentPage(currentPage + 1)}
+        />
+      </div>
     </div> 
   );
 }
