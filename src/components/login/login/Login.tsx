@@ -6,17 +6,14 @@ import { ErrMsg } from './err-msg/ErrMsg';
 import { createUser, loginAcces } from '@/server/connection/conn';
 import { FormLogin } from './form-login/FormLogin';
 import { WelcomeLogin } from './welcome-login/WelcomeLogin';
-import { Spinner } from '@/utils/spinner/Spinner';
-import { msgWaitBlock, waitServerBlock } from './LoginBlocks';
+import { msgWaitBlock, waitServerBlock, loginSpinnerBlock } from './LoginBlocks';
 import { ContextMaster } from '@/context/ContextProvider';
 import { SuccessAssign } from './success-assign/SuccessAssign';
 import { TopSec } from '../top-sec/TopSec';
 import { BottomSec } from '../bottom-sec/BottomSec';
 import styles from '@/components/login/login/Login.module.css';
 
-type Props = {
-  e: React.FormEvent<HTMLFormElement>,
-}
+type Props = { e: React.FormEvent<HTMLFormElement> }
 
 export const Login = () => {
   const { 
@@ -51,7 +48,7 @@ export const Login = () => {
       e instanceof Error && setErrMsg(e.message);
     } 
     finally{
-     setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -65,7 +62,7 @@ export const Login = () => {
       {endPreview ? 
         <section className={styles.loginCentralizedBlock}>
           {errMsg && <ErrMsg errMsg={errMsg}/>}
-          <ButtonBlock />
+          {!loading && <ButtonBlock />}
           {succesAssign && !errMsg && <SuccessAssign/>}
           {!loading && 
             <FormLogin 
@@ -73,7 +70,7 @@ export const Login = () => {
               handleSubmit={(e) => handleSubmit({ e })}
             />}
           {!errMsg && loading && showCreateAcc && msgWaitBlock()}
-          {!errMsg && loading && !showCreateAcc && <Spinner login={true}/>}
+          {!errMsg && loading && !showCreateAcc && loginSpinnerBlock()}
         </section> 
       : <>
           {waitingServer ? waitServerBlock() : <WelcomeLogin/>}

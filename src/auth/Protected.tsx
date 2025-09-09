@@ -14,7 +14,7 @@ export function Protected({ children }: Props) {
   useEffect(() => {
     const token = getToken();
 
-    const sessionInit = Number(localStorage.getItem(TOKEN_TIMER));
+    const sessionInit = Number(sessionStorage.getItem(TOKEN_TIMER));
     const sessionExpired = (Date.now() - sessionInit) >= 60_000 * 60;
     sessionExpired && logout();
     

@@ -14,3 +14,9 @@ export const waitServerBlock = () =>
     <p>{msgInitServer}</p>
     <Spinner login={false}/>
   </div> 
+
+export const loginSpinnerBlock = () => 
+  <div className={styles.wrapLoginSpinner}>
+    <span>Validando credênciais. Aguarde um momento...</span>
+    <Spinner login={true}/>
+  </div>
