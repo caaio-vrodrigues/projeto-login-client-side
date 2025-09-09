@@ -13,7 +13,7 @@ export const WelcomeLogin = () => {
   return <>
     {allPages.map((page, id) => {
       if(currentPage == id){
-        return !skipPresentation ? <>
+        return !skipPresentation && <div key={id} className={styles.wrapSkipAndCard}>
           <button 
             className={styles.buttonSkipPresentation}
             onClick={()=>setSkipPresentation(true)}
@@ -22,10 +22,10 @@ export const WelcomeLogin = () => {
             <FontAwesomeIcon icon={faArrowsTurnRight}/>
           </button>
           <WelcomePage key={id} strs={page}/>
-        </> 
-        : <EndInteraction/>
+        </div> 
       }
     })}
-    {currentPage == allPages.length && <EndInteraction/>}
+    {skipPresentation && <EndInteraction/>}
+    {currentPage == allPages.length && !skipPresentation && <EndInteraction/>}
   </>
 }

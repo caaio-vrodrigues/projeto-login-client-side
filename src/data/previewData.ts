@@ -48,11 +48,9 @@ export const allPages = [
       id: 0, 
       str: "Para manter as aplicações acessíveis em tempo real, utilizo duas plataformas de hospedagem diferentes, uma para o front e outra para o backend."
     },
-  ],
-  [
     {
-      id: 0, 
-      str: "O frontend está hospedado na plataforma Vercel, enquanto o backend está hospedado na plataforma Render. Ambos os serviços operam em suas versões gratuitas impondo limitações e desafios para manter a conexão entre os aplicativos e assegurar uma experiência satisfatória ao usuário."
+      id: 1, 
+      str: "O frontend está hospedado na plataforma Vercel, enquanto o backend está hospedado na plataforma Render."
     },
   ],
   [

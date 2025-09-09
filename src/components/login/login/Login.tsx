@@ -25,7 +25,7 @@ export const Login = () => {
   const [password, setPassword] = useState<string>('');
   const router = useRouter();
 
-  useEffect(() => {setTimeout(()=>setWaitingServer(false), 8000)}, []);
+  useEffect(() => {setTimeout(()=>setWaitingServer(false), 3000)}, []);
 
   const handleSubmit = async ({ e }: Props): Promise<void> => {
     e.preventDefault();

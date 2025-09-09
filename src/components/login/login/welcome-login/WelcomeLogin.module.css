@@ -11,3 +11,10 @@
   transition: var(--transition);
   color: var(--colorPrimaryHover);
 }
+
+.wrapSkipAndCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

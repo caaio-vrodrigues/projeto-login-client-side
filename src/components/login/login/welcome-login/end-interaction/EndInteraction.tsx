@@ -6,7 +6,7 @@ import styles from './EndInteraction.module.css';
 
 export const EndInteraction = () => {
   const { setEndPreview } = useContext(ContextMaster);
-  useEffect(()=> { setTimeout(()=>setEndPreview(true), 8000) }, []);
+  useEffect(()=> { setTimeout(()=>setEndPreview(true), 3000) }, []);
   return (
     <div className={`${styles.wrapMsgReady}`}>
       <p>{msgEndInteraction}</p> 

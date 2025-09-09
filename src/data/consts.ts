@@ -1,2 +1,2 @@
-export const msgEndInteraction = 'Finalizando o processo...';
+export const msgEndInteraction = 'Finalizando apresentação, aguarde.';
 export const msgInitServer = 'Aguarde um momento...';
